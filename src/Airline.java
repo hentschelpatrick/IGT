@@ -7,6 +7,7 @@ public class Airline {
     private int prize;
 
     private Customer customer;
+    private int customerID;
 
     public Airline(String da, String aa, String dt, String at, int prize, Customer customer) {
         this.destination_airport = da;
@@ -15,6 +16,7 @@ public class Airline {
         this.arrival_time = at;
         this.prize = prize;
         this.customer = customer;
+        this.customerID = customer.getId();
     }
 
 
@@ -64,5 +66,13 @@ public class Airline {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 }

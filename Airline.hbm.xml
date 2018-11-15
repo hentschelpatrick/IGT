@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "Airline" table = "AIRLINE">
+
+        <meta attribute = "class-description">
+            This class contains the flight detail.
+        </meta>
+
+        <id name = "customerID" type = "int" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "destination_airport" column = "destination_airport" type = "string"/>
+        <property name = "arrival_airport" column = "arrival_airport" type = "string"/>
+        <property name = "departure_time" column = "departure_time" type = "string"/>
+        <property name = "arrival_time" column = "arrival_time" type = "string"/>
+        <property name = "prize" column = "prize" type = "int"/>
+
+    </class>
+</hibernate-mapping>
