@@ -1,3 +1,5 @@
+package main.java;
+
 public class Airline {
     private String name;
     private int airportID;

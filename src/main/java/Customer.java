@@ -1,3 +1,5 @@
+package main.java;
+
 public class Customer {
     private int id;
     private int phoneType;

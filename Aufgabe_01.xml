@@ -7,7 +7,7 @@
          <signavio:signavioDiagramMetaData metaKey="meta-processowner" metaValue=""/>
          <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="79eace27a6de44359135dbdf20812cd3"/>
       </extensionElements>
-      <participant id="sid-D1ABE4B8-798F-483A-A0CD-0F11B0B6C3B7" name="Customer" processRef="sid-4062BCFD-17AA-49C1-8057-2A7CCA4417D3">
+      <participant id="sid-D1ABE4B8-798F-483A-A0CD-0F11B0B6C3B7" name="main.java.Customer" processRef="sid-4062BCFD-17AA-49C1-8057-2A7CCA4417D3">
          <extensionElements>
             <signavio:signavioDictionaryLink propertyId="name">
                <signavio:dictionaryLink>/glossary/b315211b50d94602ab072819e7fd354d</signavio:dictionaryLink>
@@ -16,7 +16,7 @@
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
          </extensionElements>
       </participant>
-      <participant id="sid-18C8E839-C353-47DA-B9F2-FEFD3BD08682" name="Airline" processRef="sid-086E10F2-EA95-436A-80A4-9A1CFF068CE6">
+      <participant id="sid-18C8E839-C353-47DA-B9F2-FEFD3BD08682" name="main.java.Airline" processRef="sid-086E10F2-EA95-436A-80A4-9A1CFF068CE6">
          <extensionElements>
             <signavio:signavioDictionaryLink propertyId="name">
                <signavio:dictionaryLink>/glossary/75a8ce43ae4743cdae4b0459d8977af0</signavio:dictionaryLink>
@@ -40,13 +40,13 @@
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
          </extensionElements>
       </messageFlow>
-      <messageFlow id="sid-DFAB6737-6F32-48E6-A49C-0E887F058E43" name="Customer personal information" sourceRef="sid-AE2973BF-2D85-4A27-B0FE-58F8319DC5A8" targetRef="sid-880693DC-3863-47CF-BE6D-313EC0AC1928">
+      <messageFlow id="sid-DFAB6737-6F32-48E6-A49C-0E887F058E43" name="main.java.Customer personal information" sourceRef="sid-AE2973BF-2D85-4A27-B0FE-58F8319DC5A8" targetRef="sid-880693DC-3863-47CF-BE6D-313EC0AC1928">
          <extensionElements>
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
          </extensionElements>
       </messageFlow>
    </collaboration>
-   <process id="sid-4062BCFD-17AA-49C1-8057-2A7CCA4417D3" isClosed="false" isExecutable="false" name="Customer" processType="None">
+   <process id="sid-4062BCFD-17AA-49C1-8057-2A7CCA4417D3" isClosed="false" isExecutable="false" name="main.java.Customer" processType="None">
       <extensionElements/>
       <property id="firstname" name="Firstname"/>
       <property id="lastname" name="Lastname"/>
@@ -167,7 +167,7 @@
          <outgoing>sid-A8EB7C27-ABF9-4FA4-8AE3-723EEA18925C</outgoing>
          <messageEventDefinition id="sid-e0059cf2-b7f8-47b1-b459-fa52979da3e2"/>
       </intermediateCatchEvent>
-      <endEvent id="sid-93D434D4-BAC6-45CB-B6DD-BD83A0E00A3D" name="Flight ticket received">
+      <endEvent id="sid-93D434D4-BAC6-45CB-B6DD-BD83A0E00A3D" name="main.java.Flight ticket received">
          <extensionElements>
             <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
@@ -216,7 +216,7 @@
          </extensionElements>
       </sequenceFlow>
    </process>
-   <process id="sid-086E10F2-EA95-436A-80A4-9A1CFF068CE6" isClosed="false" isExecutable="false" name="Airline" processType="None">
+   <process id="sid-086E10F2-EA95-436A-80A4-9A1CFF068CE6" isClosed="false" isExecutable="false" name="main.java.Airline" processType="None">
       <extensionElements/>
       <laneSet id="sid-142229fd-3af0-4a55-b96e-1f05237cdc41">
          <lane id="sid-6D1DDCA2-5FC5-4B7E-BB7E-AAD3E9AF4224" name="Website">
@@ -234,7 +234,7 @@
             <flowNodeRef>sid-D9C3D7DE-76E6-4050-9A92-02E221E26442</flowNodeRef>
          </lane>
       </laneSet>
-      <startEvent id="sid-CB02B17C-A5D3-40D1-A3E1-C2D23AA07838" isInterrupting="true" name="Customer selected&#10;a seat">
+      <startEvent id="sid-CB02B17C-A5D3-40D1-A3E1-C2D23AA07838" isInterrupting="true" name="main.java.Customer selected&#10;a seat">
          <extensionElements>
             <signavio:signavioDictionaryLink propertyId="name">
                <signavio:dictionaryLink>/glossary/e25d682b4bf247dc957047631a2ade09</signavio:dictionaryLink>
@@ -246,7 +246,7 @@
          <outgoing>sid-852BAF5D-8440-4488-B891-F508BF158875</outgoing>
          <messageEventDefinition id="sid-e58b9ea4-e97e-40a6-9c35-ffc75ea2c7f8"/>
       </startEvent>
-      <serviceTask completionQuantity="1" id="sid-1B0691DD-1CC5-4AFC-886A-710D5FE4EA77" implementation="##WebService" isForCompensation="false" name="create &#10;Customer" startQuantity="1">
+      <serviceTask completionQuantity="1" id="sid-1B0691DD-1CC5-4AFC-886A-710D5FE4EA77" implementation="##WebService" isForCompensation="false" name="create &#10;main.java.Customer" startQuantity="1">
          <extensionElements>
             <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
@@ -259,7 +259,7 @@
          <incoming>sid-852BAF5D-8440-4488-B891-F508BF158875</incoming>
          <outgoing>sid-55CF65A6-8862-49A2-B27F-A9FE38A59093</outgoing>
       </serviceTask>
-      <serviceTask completionQuantity="1" id="sid-6A5864A5-C35E-4BF6-908A-EFEC4E6E28A6" implementation="##WebService" isForCompensation="false" name="reserve seat&#10;for  Customer" startQuantity="1">
+      <serviceTask completionQuantity="1" id="sid-6A5864A5-C35E-4BF6-908A-EFEC4E6E28A6" implementation="##WebService" isForCompensation="false" name="reserve seat&#10;for  main.java.Customer" startQuantity="1">
          <extensionElements>
             <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
@@ -272,7 +272,7 @@
          <incoming>sid-55CF65A6-8862-49A2-B27F-A9FE38A59093</incoming>
          <outgoing>sid-FDB19E79-01BF-4D81-B4CB-F790556F161C</outgoing>
       </serviceTask>
-      <serviceTask completionQuantity="1" id="sid-4F49932C-9512-4E3D-A680-AE5582E8432B" implementation="##WebService" isForCompensation="false" name="save Customer information" startQuantity="1">
+      <serviceTask completionQuantity="1" id="sid-4F49932C-9512-4E3D-A680-AE5582E8432B" implementation="##WebService" isForCompensation="false" name="save main.java.Customer information" startQuantity="1">
          <extensionElements>
             <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
@@ -294,7 +294,7 @@
          <outgoing>sid-7E766535-308B-45BF-A3F8-0BE9F5FA9C2B</outgoing>
          <messageEventDefinition id="sid-0d860bbf-eb0f-48a4-a3ef-0a21c7daa7e8"/>
       </intermediateCatchEvent>
-      <serviceTask completionQuantity="1" id="sid-EC1693F0-B402-452C-88B5-665C768019E4" implementation="##WebService" isForCompensation="false" name="occupie seat with Customer" startQuantity="1">
+      <serviceTask completionQuantity="1" id="sid-EC1693F0-B402-452C-88B5-665C768019E4" implementation="##WebService" isForCompensation="false" name="occupie seat with main.java.Customer" startQuantity="1">
          <extensionElements>
             <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
             <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
