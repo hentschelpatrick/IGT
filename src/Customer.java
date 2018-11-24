@@ -1,34 +1,18 @@
 public class Customer {
     private int id;
-    private String firstname;
-    private String lastname;
+    private int phoneType;
     private String address;
-    private int age;
-    private int creditcard;
+    private int overallFlownMiles;
+    private int currentFlownMiles;
+    private Status status;
 
-    public Customer(int id, String firstname, String lastname, String address, int age, int creditcard) {
+    public Customer(int id, int pt, String a, int ofm, int cfm) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.address = address;
-        this.age = age;
-        this.creditcard = creditcard;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.phoneType = pt;
+        this.address = a;
+        this.overallFlownMiles = ofm;
+        this.currentFlownMiles = cfm;
+        this.status = Status.NONE;
     }
 
     public int getId() {
@@ -39,6 +23,14 @@ public class Customer {
         this.id = id;
     }
 
+    public int getPhoneType() {
+        return phoneType;
+    }
+
+    public void setPhoneType(int phoneType) {
+        this.phoneType = phoneType;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -47,19 +39,27 @@ public class Customer {
         this.address = address;
     }
 
-    public int getAge() {
-        return age;
+    public int getOverallFlownMiles() {
+        return overallFlownMiles;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setOverallFlownMiles(int overallFlownMiles) {
+        this.overallFlownMiles = overallFlownMiles;
     }
 
-    public int getCreditcard() {
-        return creditcard;
+    public int getCurrentFlownMiles() {
+        return currentFlownMiles;
     }
 
-    public void setCreditcard(int creditcard) {
-        this.creditcard = creditcard;
+    public void setCurrentFlownMiles(int currentFlownMiles) {
+        this.currentFlownMiles = currentFlownMiles;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
