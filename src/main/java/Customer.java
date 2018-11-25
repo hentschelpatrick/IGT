@@ -29,6 +29,9 @@ public class Customer implements Serializable {
         this.status = Status.NONE;
     }
 
+    public Customer() {
+    }
+
     public int getId() {
         return id;
     }

@@ -2,12 +2,14 @@ package main.java;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "FLIGHTSEGMENTS")
 public class Flightsegments implements Serializable {
+    @Id
     @Column(name = "name")
     private  String name;
     @Column(name = "destination_airport")
@@ -22,6 +24,9 @@ public class Flightsegments implements Serializable {
         this.destinationAirport = da;
         this.arrivalAirport = aa;
         this.distanceInMile = dim;
+    }
+
+    public Flightsegments() {
     }
 
     public String getName() {

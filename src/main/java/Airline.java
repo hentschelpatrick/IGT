@@ -20,6 +20,9 @@ public class Airline implements Serializable {
         this.name = n;
     }
 
+    public Airline() {
+    }
+
     public int getAirportID() {
         return airportID;
     }

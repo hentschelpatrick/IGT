@@ -36,6 +36,9 @@ public class Flight implements Serializable {
         this.ecoPrize = ep;
     }
 
+    public Flight() {
+    }
+
     public int getId() {
         return id;
     }
