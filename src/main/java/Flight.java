@@ -2,29 +2,30 @@ package main.java;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "FLIGHT")
 public class Flight implements Serializable {
     @Id @GeneratedValue
     @Column(name = "id")
-    int id;
+    private int id;
     @Column(name = "arrival")
-    String arrival;
+    private Date arrival;
     @Column(name = "departure")
-    String departure;
+    private Date departure;
     @Column(name = "airplane_type")
-    String airplaneType;
+    private String airplaneType;
     @Column(name = "first_class_seats")
-    int firstClassSeats;
+    private int firstClassSeats;
     @Column(name = "first_class_prize")
-    int firstClassPrize;
+    private int firstClassPrize;
     @Column(name = "eco_seats")
-    int ecoSeats;
+    private int ecoSeats;
     @Column(name = "eco_prize")
-    int ecoPrize;
+    private int ecoPrize;
 
-    public Flight(int id, String a, String d, String apt, int fcs, int fcp, int es, int ep) {
+    public Flight(int id, Date a, Date d, String apt, int fcs, int fcp, int es, int ep) {
         this.id = id;
         this.arrival = a;
         this.departure = d;
@@ -43,19 +44,19 @@ public class Flight implements Serializable {
         this.id = id;
     }
 
-    public String getArrival() {
+    public Date getArrival() {
         return arrival;
     }
 
-    public void setArrival(String arrival) {
+    public void setArrival(Date arrival) {
         this.arrival = arrival;
     }
 
-    public String getDeparture() {
+    public Date getDeparture() {
         return departure;
     }
 
-    public void setDeparture(String departure) {
+    public void setDeparture(Date departure) {
         this.departure = departure;
     }
 
