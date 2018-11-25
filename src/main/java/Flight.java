@@ -1,13 +1,26 @@
 package main.java;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "FLIGHT")
 public class Flight {
+    @Id @GeneratedValue
+    @Column(name = "id")
     int id;
+    @Column(name = "arrival")
     String arrival;
+    @Column(name = "departure")
     String departure;
+    @Column(name = "airplane_type")
     String airplaneType;
+    @Column(name = "first_class_seats")
     int firstClassSeats;
+    @Column(name = "first_class_prize")
     int firstClassPrize;
+    @Column(name = "eco_seats")
     int ecoSeats;
+    @Column(name = "eco_prize")
     int ecoPrize;
 
     public Flight(int id, String a, String d, String apt, int fcs, int fcp, int es, int ep) {

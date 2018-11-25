@@ -1,11 +1,22 @@
 package main.java;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CUSTOMER")
 public class Customer {
+    @Id @GeneratedValue
+    @Column(name = "id")
     private int id;
+    @Column(name = "phone_type")
     private int phoneType;
+    @Column(name = "address")
     private String address;
+    @Column(name = "overall_flown_miles")
     private int overallFlownMiles;
+    @Column(name = "current_flown_miles")
     private int currentFlownMiles;
+    @Column(name = "status")
     private Status status;
 
     public Customer(int id, int pt, String a, int ofm, int cfm) {

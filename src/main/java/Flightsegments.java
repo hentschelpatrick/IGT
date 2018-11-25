@@ -1,9 +1,19 @@
 package main.java;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "FLIGHTSEGMENTS")
 public class Flightsegments {
+    @Column(name = "name")
     private  String name;
+    @Column(name = "destination_airport")
     private String destinationAirport;
+    @Column(name = "arrival_airport")
     private String arrivalAirport;
+    @Column(name = "distance_in_mile")
     private int distanceInMile;
 
     public Flightsegments(String n, String da, String aa, int dim) {
