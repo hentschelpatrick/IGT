@@ -3,10 +3,11 @@ package main.java;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "FLIGHTSEGMENTS")
-public class Flightsegments {
+public class Flightsegments implements Serializable {
     @Column(name = "name")
     private  String name;
     @Column(name = "destination_airport")

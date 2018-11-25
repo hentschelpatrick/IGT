@@ -1,10 +1,11 @@
 package main.java;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "CUSTOMER")
-public class Customer {
+public class Customer implements Serializable {
     @Id @GeneratedValue
     @Column(name = "id")
     private int id;
