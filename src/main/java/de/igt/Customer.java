@@ -1,23 +1,24 @@
-package main.java;
+package de.igt;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "CUSTOMER")
+
+//@Entity
+//@Table(name = "CUSTOMER")
 public class Customer implements Serializable {
-    @Id @GeneratedValue
-    @Column(name = "id")
+    //@Id @GeneratedValue
+    //@Column(name = "id")
     private int id;
-    @Column(name = "phone_type")
+    //@Column(name = "phone_type")
     private int phoneType;
-    @Column(name = "address")
+    //@Column(name = "address")
     private String address;
-    @Column(name = "overall_flown_miles")
+    //@Column(name = "overall_flown_miles")
     private int overallFlownMiles;
-    @Column(name = "current_flown_miles")
+    //@Column(name = "current_flown_miles")
     private int currentFlownMiles;
-    @Column(name = "status")
+    //@Column(name = "status")
     private Status status;
 
     public Customer(int id, int pt, String a, int ofm, int cfm) {

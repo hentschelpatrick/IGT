@@ -4,21 +4,20 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "main.java.Airline" table = "AIRLINE">
+    <class name="de.igt.Airline" table="AIRLINE">
 
-        <meta attribute = "class-description">
+        <meta attribute="class-description">
             This class contains the flight detail.
         </meta>
 
-        <id name = "customerID" type = "int" column = "id">
-            <generator class="native"/>
+        <id name="id" type="long" column="AIRLINE_ID" access="field">
+            <generator class="increment"/>
         </id>
 
-        <property name = "destination_airport" column = "destination_airport" type = "string"/>
-        <property name = "arrival_airport" column = "arrival_airport" type = "string"/>
-        <property name = "departure_time" column = "departure_time" type = "string"/>
-        <property name = "arrival_time" column = "arrival_time" type = "string"/>
-        <property name = "prize" column = "prize" type = "int"/>
+        <property name="name" column="NAME" type="string"/>
+        <property name="country" column="COUNTRY" type="string"/>
+        <property name="address" column="ADDRESS" type="string"/>
+        <!-- <property name= "flight" column = "FLIGHT" type = "string" /> -->
 
     </class>
 </hibernate-mapping>

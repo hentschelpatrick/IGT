@@ -1,19 +1,19 @@
-package main.java;
+package de.igt;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "STATUS")
+//@Entity
+//@Table(name = "STATUS")
 public enum Status {
-    @Column(name = "status")
+    //@Column(name = "status")
     NONE, SILVER, GOLD, PLATINUM, SPECIAL_PLATINUM, WHITE_GOLD;
 
     private int customerID;
 
-    @Id
+    //@Id
     public int getId() {
         return customerID;
     }

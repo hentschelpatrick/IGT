@@ -1,4 +1,4 @@
-package main.java;
+package de.igt;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,17 +6,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "FLIGHTSEGMENTS")
+//@Entity
+//@Table(name = "FLIGHTSEGMENTS")
 public class Flightsegments implements Serializable {
-    @Id
-    @Column(name = "name")
+    //@Id
+    //@Column(name = "name")
     private  String name;
-    @Column(name = "destination_airport")
+    //@Column(name = "destination_airport")
     private String destinationAirport;
-    @Column(name = "arrival_airport")
+    //@Column(name = "arrival_airport")
     private String arrivalAirport;
-    @Column(name = "distance_in_mile")
+    //@Column(name = "distance_in_mile")
     private int distanceInMile;
 
     public Flightsegments(String n, String da, String aa, int dim) {

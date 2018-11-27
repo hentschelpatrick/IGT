@@ -1,3 +1,5 @@
+package de.igt;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -35,13 +37,16 @@ public class Main {
         Session session = main.sessionFactory.openSession();
         session.beginTransaction();
 
+        AirlineBuilder airlineBuilder = new AirlineBuilder();
 
+        Airline airline = airlineBuilder.setAid(0).setN("Test").createAirline();
+        session.save(airline);
 
         session.getTransaction().commit();
         session.close();
 
         main.sessionFactory.close();
-
+        System.exit(0);
     }
 
 }

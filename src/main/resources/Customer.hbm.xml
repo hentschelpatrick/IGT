@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "main.java.Customer" table = "Customer">
+    <class name = "de.igt.Customer" table = "Customer">
 
         <meta attribute = "class-description">
             This class contains the customer detail.

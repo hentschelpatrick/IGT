@@ -1,28 +1,28 @@
-package main.java;
+package de.igt;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "FLIGHT")
+//@Entity
+//@Table(name = "FLIGHT")
 public class Flight implements Serializable {
-    @Id @GeneratedValue
-    @Column(name = "id")
+    //@Id @GeneratedValue
+    //@Column(name = "id")
     private int id;
-    @Column(name = "arrival")
+    //@Column(name = "arrival")
     private Date arrival;
-    @Column(name = "departure")
+    //@Column(name = "departure")
     private Date departure;
-    @Column(name = "airplane_type")
+    //@Column(name = "airplane_type")
     private String airplaneType;
-    @Column(name = "first_class_seats")
+    //@Column(name = "first_class_seats")
     private int firstClassSeats;
-    @Column(name = "first_class_prize")
+    //@Column(name = "first_class_prize")
     private int firstClassPrize;
-    @Column(name = "eco_seats")
+    //@Column(name = "eco_seats")
     private int ecoSeats;
-    @Column(name = "eco_prize")
+    //@Column(name = "eco_prize")
     private int ecoPrize;
 
     public Flight(int id, Date a, Date d, String apt, int fcs, int fcp, int es, int ep) {
