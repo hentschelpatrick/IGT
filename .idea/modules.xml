@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/IGT.iml" filepath="$PROJECT_DIR$/.idea/IGT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hibernate-ogm-tutorial/hibernate-ogm-example.iml" filepath="$PROJECT_DIR$/hibernate-ogm-tutorial/hibernate-ogm-example.iml" />
     </modules>
   </component>
 </project>
