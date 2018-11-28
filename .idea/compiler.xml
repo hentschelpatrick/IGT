@@ -9,9 +9,5 @@
         <module name="hibernate-ogm-example" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="hibernate-ogm-example" target="1.8" />
-      <module name="IGT" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

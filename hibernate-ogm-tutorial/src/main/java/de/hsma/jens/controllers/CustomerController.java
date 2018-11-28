@@ -115,7 +115,7 @@ public class CustomerController {
 
 
 
-    public void updateCustomer(Customer c) {
+    public void updateCustomer(Customer c) throws HeuristicMixedException, RollbackException {
 
         try {
             logger.info("Update customer TA begins");
@@ -145,15 +145,7 @@ public class CustomerController {
 
             logger.info("Customer successfully persisted in " + queryTime + " ms.");
 
-        } catch (NotSupportedException e) {
-            e.printStackTrace();
-        } catch (SystemException e) {
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();
-        } catch (RollbackException e) {
+        } catch (NotSupportedException | SystemException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
 

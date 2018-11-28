@@ -1,6 +1,7 @@
 package de.hsma.jens.de.hsma.jens.transactions;
 
 import de.hsma.jens.controllers.CustomerController;
+import de.hsma.jens.models.Custom_Customer;
 import de.hsma.jens.models.Customer;
 import org.apache.log4j.Logger;
 
@@ -19,7 +20,7 @@ public class UpdateUncommitted1 {
 
     //build the EntityManagerFactory as you would build in in Hibernate ORM
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-            "ogm-postgresql");
+            "OGM_MYSQL");
 
 
     private static Logger logger = Logger.getRootLogger();
@@ -27,30 +28,16 @@ public class UpdateUncommitted1 {
 
     public static void main(String[] args) {
 
-        Customer customer1 = new Customer();
+        Custom_Customer custom_customer = new Custom_Customer();
 
-        customer1.setC_ADDR_ID(1);
-        customer1.setC_BALANCE(11.11);
-        customer1.setC_BIRTHDATE(new Date());
-        customer1.setC_DATA("data_11");
-        customer1.setC_DISCOUNT(11.11);
-        customer1.setC_EMAIL("email_11");
-        customer1.setC_EXPIRATION(new Date());
-        customer1.setC_FNAME("fname_11");
-        customer1.setC_ID(1);
-        customer1.setC_LAST_LOGIN(new Date());
-        customer1.setC_LOGIN(new Date());
-        customer1.setC_PASSWD("password_11");
-        customer1.setC_LNAME("lname_11");
-        customer1.setC_PHONE("phone_11");
-        customer1.setC_SINCE(new Date());
-        customer1.setC_YTD_PMT(11.11);
-        customer1.setC_UNAME("uname_11");
-
-
-        CustomerController customerController = new CustomerController();
-        customerController.createCustomers();
-
+        custom_customer.setEmail("test@test.de");
+        custom_customer.setAddress("test");
+        custom_customer.setCountry("DE");
+        custom_customer.setCreditCard("132031232");
+        custom_customer.setLast_name("asd");
+        custom_customer.setFirst_name("2asdaso");
+        custom_customer.setTotal_miles_flown(0);
+        custom_customer.setMiles_flown_year(0);
 
         try {
             tm.begin();
@@ -58,40 +45,17 @@ public class UpdateUncommitted1 {
             logger.info("TA begins");
             EntityManager em = emf.createEntityManager();
 
-
-            Customer customerToUpdate = em.find(Customer.class, 1);
-            logger.info("Found customer: " + customerToUpdate.toString());
-            logger.info("Updating customer...");
-            customerToUpdate = customer1;
-
-            em.merge(customerToUpdate);
-
+            em.persist(custom_customer);
 
             em.flush();
             em.close();
-
-
-            Thread.sleep(40000);
-
             tm.commit();
-
             logger.info("Update successfully persisted.");
 
-            // customerController.deleteCustomer(1);
-
-
-        } catch (NotSupportedException e) {
+        } catch (NotSupportedException | SystemException | HeuristicMixedException | HeuristicRollbackException | RollbackException e) {
             e.printStackTrace();
-        } catch (SystemException e) {
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();
-        } catch (RollbackException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } finally {
+            System.exit(0);
         }
 
 
