@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UpdateUncommitted1",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "de.hsma.jens.de.hsma.jens.transactions.UpdateUncommitted1",
+            "args": "",
+            "projectName": "hibernate-ogm-example"
+        }
+    ]
+}

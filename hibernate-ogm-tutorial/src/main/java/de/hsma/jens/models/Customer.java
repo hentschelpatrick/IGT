@@ -1,250 +1,118 @@
 package de.hsma.jens.models;
 
-import org.hibernate.search.annotations.Indexed;
+import com.google.common.base.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
-
-/**
- * Created by jenskohler on 12.12.17.
- */
-
-@Entity @Indexed
-@Table(name = "CUSTOMER")
+@Entity(name = "Customer")
+@Table(name = "CUSTOMERS")
 public class Customer implements Serializable {
     @Id
-    private Integer C_ID;
     @Column
-    private String C_UNAME;
-    @Column
-    private String C_PASSWD;
-    @Column
-    private String C_FNAME;
-    @Column
-    private String C_LNAME;
-    @Column
-    private Integer C_ADDR_ID;
-    @Column
-    private String C_PHONE;
-    @Column
-    private String C_EMAIL;
-    @Column
-    private Date C_SINCE;
-    @Column
-    private Date C_LAST_LOGIN;
-    @Column
-    private Date C_LOGIN;
-    @Column
-    private Double C_DISCOUNT;
-    @Column
-    private Double C_BALANCE;
-    @Column
-    private Double C_YTD_PMT;
-    @Column
-    private Date C_BIRTHDATE;
-    @Column
-    private String C_DATA;
-    @Column
-    private Date C_EXPIRATION;
+    private String email;
 
+    private String first_name;
+    private String last_name;
+    private String address;
+    private String country;
+    private String creditCard;
+    private String phonenumber;
+    private long miles_flown_year;
+    private long total_miles_flown;
 
     public Customer() {
     }
 
-    public Date getC_EXPIRATION() {
-        return C_EXPIRATION;
+    public String getEmail() {
+        return email;
     }
 
-
-    public void setC_EXPIRATION(Date c_EXPIRATION) {
-        C_EXPIRATION = c_EXPIRATION;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-
-    public Date getC_LOGIN() {
-        return C_LOGIN;
+    public String getFirst_name() {
+        return first_name;
     }
 
-
-    public void setC_LOGIN(Date c_LOGIN) {
-        C_LOGIN = c_LOGIN;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public Integer getC_ID() {
-        return C_ID;
+    public String getLast_name() {
+        return last_name;
     }
 
-
-    public void setC_ID(Integer c_ID) {
-        C_ID = c_ID;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-
-    public String getC_UNAME() {
-        return C_UNAME;
+    public String getAddress() {
+        return address;
     }
 
-
-    public void setC_UNAME(String c_UNAME) {
-        C_UNAME = c_UNAME;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-
-    public String getC_PASSWD() {
-        return C_PASSWD;
+    public String getCountry() {
+        return country;
     }
 
-
-    public void setC_PASSWD(String c_PASSWD) {
-        C_PASSWD = c_PASSWD;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-
-    public String getC_FNAME() {
-        return C_FNAME;
+    public String getCreditCard() {
+        return creditCard;
     }
 
-
-    public void setC_FNAME(String c_FNAME) {
-        C_FNAME = c_FNAME;
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
     }
 
-
-    public String getC_LNAME() {
-        return C_LNAME;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-
-    public void setC_LNAME(String c_LNAME) {
-        C_LNAME = c_LNAME;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
-
-    public Integer getC_ADDR_ID() {
-        return C_ADDR_ID;
+    public long getMiles_flown_year() {
+        return miles_flown_year;
     }
 
-
-    public void setC_ADDR_ID(Integer c_ADDR_ID) {
-        C_ADDR_ID = c_ADDR_ID;
+    public void setMiles_flown_year(long miles_flown_year) {
+        this.miles_flown_year = miles_flown_year;
     }
 
-
-    public String getC_PHONE() {
-        return C_PHONE;
+    public long getTotal_miles_flown() {
+        return total_miles_flown;
     }
 
-
-    public void setC_PHONE(String c_PHONE) {
-        C_PHONE = c_PHONE;
+    public void setTotal_miles_flown(long total_miles_flown) {
+        this.total_miles_flown = total_miles_flown;
     }
-
-
-    public String getC_EMAIL() {
-        return C_EMAIL;
-    }
-
-
-    public void setC_EMAIL(String c_EMAIL) {
-        C_EMAIL = c_EMAIL;
-    }
-
-
-    public Date getC_SINCE() {
-        return C_SINCE;
-    }
-
-
-    public void setC_SINCE(Date c_SINCE) {
-        C_SINCE = c_SINCE;
-    }
-
-
-    public Date getC_LAST_LOGIN() {
-        return C_LAST_LOGIN;
-    }
-
-
-    public void setC_LAST_LOGIN(Date c_LAST_LOGIN) {
-        C_LAST_LOGIN = c_LAST_LOGIN;
-    }
-
-
-    public Double getC_DISCOUNT() {
-        return C_DISCOUNT;
-    }
-
-
-    public void setC_DISCOUNT(Double c_DISCOUNT) {
-        C_DISCOUNT = c_DISCOUNT;
-    }
-
-
-    public Double getC_BALANCE() {
-        return C_BALANCE;
-    }
-
-
-    public void setC_BALANCE(Double c_BALANCE) {
-        C_BALANCE = c_BALANCE;
-    }
-
-
-    public Double getC_YTD_PMT() {
-        return C_YTD_PMT;
-    }
-
-
-    public void setC_YTD_PMT(Double c_YTD_PMT) {
-        C_YTD_PMT = c_YTD_PMT;
-    }
-
-
-    public Date getC_BIRTHDATE() {
-        return C_BIRTHDATE;
-    }
-
-
-    public void setC_BIRTHDATE(Date c_BIRTHDATE) {
-        C_BIRTHDATE = c_BIRTHDATE;
-    }
-
-
-    public String getC_DATA() {
-        return C_DATA;
-    }
-
-
-    public void setC_DATA(String c_DATA) {
-        C_DATA = c_DATA;
-    }
-
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "C_ID=" + C_ID +
-                ", C_UNAME='" + C_UNAME + '\'' +
-                ", C_PASSWD='" + C_PASSWD + '\'' +
-                ", C_FNAME='" + C_FNAME + '\'' +
-                ", C_LNAME='" + C_LNAME + '\'' +
-                ", C_ADDR_ID=" + C_ADDR_ID +
-                ", C_PHONE='" + C_PHONE + '\'' +
-                ", C_EMAIL='" + C_EMAIL + '\'' +
-                ", C_SINCE=" + C_SINCE +
-                ", C_LAST_LOGIN=" + C_LAST_LOGIN +
-                ", C_LOGIN=" + C_LOGIN +
-                ", C_DISCOUNT=" + C_DISCOUNT +
-                ", C_BALANCE=" + C_BALANCE +
-                ", C_YTD_PMT=" + C_YTD_PMT +
-                ", C_BIRTHDATE=" + C_BIRTHDATE +
-                ", C_DATA='" + C_DATA + '\'' +
-                ", C_EXPIRATION=" + C_EXPIRATION +
-                '}';
+        return Objects.toStringHelper(this)
+                .add("email", email)
+                .add("first_name", first_name)
+                .add("last_name", last_name)
+                .add("address", address)
+                .add("country", country)
+                .add("creditCard", creditCard)
+                .add("phonenumber", phonenumber)
+                .add("miles_flown_year", miles_flown_year)
+                .add("total_miles_flown", total_miles_flown)
+                .toString();
     }
+
+
 }
