@@ -2,10 +2,7 @@ package de.hsma.jens.models;
 
 import com.google.common.base.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name = "Customer")
@@ -24,9 +21,16 @@ public class Customer implements Serializable {
     private long miles_flown_year;
     private long total_miles_flown;
 
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     public Customer() {
     }
 
+    public Status getStatus() { return status; }
+
+    public void setStatus(Status status) { this.status = status; }
     public String getEmail() {
         return email;
     }
@@ -111,8 +115,7 @@ public class Customer implements Serializable {
                 .add("phonenumber", phonenumber)
                 .add("miles_flown_year", miles_flown_year)
                 .add("total_miles_flown", total_miles_flown)
+                .add("status", status)
                 .toString();
     }
-
-
 }

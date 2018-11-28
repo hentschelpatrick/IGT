@@ -1,6 +1,7 @@
 package de.hsma.jens.controllers;
 
 import de.hsma.jens.models.Customer;
+import de.hsma.jens.models.Status;
 import de.hsma.jens.tools.Config;
 import org.apache.log4j.Logger;
 
@@ -19,7 +20,7 @@ public class CustomerController {
     //build the EntityManagerFactory as you would build in in Hibernate ORM
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
-    public void createCustomer(String email, String firstname, String lastname, String address, String phonenumber, String country, String creditcard, long miles_flown_year, long total_miles_flown) {
+    public void createCustomer(String email, String firstname, String lastname, String address, String phonenumber, String country, String creditcard, long miles_flown_year, long total_miles_flown, Status status) {
         Customer customer = new Customer();
         customer.setEmail(email);
         customer.setFirstname(firstname);
@@ -30,6 +31,7 @@ public class CustomerController {
         customer.setMiles_flown_year(miles_flown_year);
         customer.setTotal_miles_flown(total_miles_flown);
         customer.setPhonenumber(phonenumber);
+        customer.setStatus(status);
 
         try {
             logger.info("\n\nCreating Customer TA begins\n\n");
