@@ -22,8 +22,8 @@ public class CustomerController {
     public void createCustomer(String email, String firstname, String lastname, String address, String phonenumber, String country, String creditcard, long miles_flown_year, long total_miles_flown) {
         Customer customer = new Customer();
         customer.setEmail(email);
-        customer.setFirst_name(firstname);
-        customer.setLast_name(lastname);
+        customer.setFirstname(firstname);
+        customer.setLastname(lastname);
         customer.setAddress(address);
         customer.setCountry(country);
         customer.setCreditCard(creditcard);
