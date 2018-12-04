@@ -1,7 +1,6 @@
 package de.igt.controllers;
 
 import de.igt.models.Airport;
-import de.igt.models.Flight;
 import de.igt.tools.Config;
 import org.apache.log4j.Logger;
 
@@ -21,17 +20,13 @@ public class AirportController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createAirport(String airportID, String airportName, String country, String address, int internationalLandingsites, int nationalLandingsites, Flight flight) {
+    public void createAirport(String airportName, String country, String address, int internationalLandingsites, int nationalLandingsites) {
         Airport airport = new Airport();
-        airport.setAirport_id(airportID);
-        airport.setName(airportName);
-        airport.setCountry(country);
-        airport.setAddress(address);
-        airport.setAmount_international_landingsites(internationalLandingsites);
-        airport.setAmount_national_landingsites(nationalLandingsites);
-        List<Flight> flights = new ArrayList<>();
-        airport.setFlights(flights);
-        airport.getFlights().add(flight);
+        airport.setNAME(airportName);
+        airport.setCOUNTRY(country);
+        airport.setADDRESS(address);
+        airport.setAMOUNT_INTERNATIONAL_LANDINGSITES(internationalLandingsites);
+        airport.setAMOUNT_NATIONAL_LANDINGSITES(nationalLandingsites);
 
         try {
             logger.info("\n\nCreating Airport TA begins\n\n");
@@ -61,7 +56,7 @@ public class AirportController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            Airport airportUpdate = em.find(Airport.class, airport.getAirport_id());
+            Airport airportUpdate = em.find(Airport.class, airport.getNAME());
             logger.info("\n\nFound airport: " + airportUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating airport...");
             airportUpdate = airport;
@@ -112,7 +107,7 @@ public class AirportController {
     public void deleteAllAirports() {
         List<String> airports;
         try {
-            airports = getAllAirportMails();
+            airports = getAllAirportNames();
             logger.info("\n\nDelete all airport TA begins");
             long queryStart = System.currentTimeMillis();
 
@@ -132,7 +127,7 @@ public class AirportController {
         }
     }
 
-    public void deleteAirport(String airportID) {
+    public void deleteAirport(String airportName) {
         try {
             logger.info("\n\nDelete airport TA begins");
             EntityManager em = emf.createEntityManager();
@@ -141,7 +136,7 @@ public class AirportController {
 
             long queryStart = System.currentTimeMillis();
 
-            Airport airport = em.find(Airport.class, airportID);
+            Airport airport = em.find(Airport.class, airportName);
             logger.info("\n\nFound airport: " + airport.toString());
             logger.info("\n\nDeleting airport...");
             em.remove(airport);
@@ -162,14 +157,14 @@ public class AirportController {
     }
 
 
-    public Airport getAirports(String airportID) {
+    public Airport getAirports(String airportName) {
         Airport cust = null;
         try {
             EntityManager em = emf.createEntityManager();
             tm.begin();
             logger.info("\n\nDelete airport TA begins");
 
-            cust = em.find(Airport.class, airportID);
+            cust = em.find(Airport.class, airportName);
             logger.info("\n\nFound airport: " + cust.toString() + "\n\n");
 
             em.flush();
@@ -183,7 +178,7 @@ public class AirportController {
     }
 
 
-    public List<String> getAllAirportMails() {
+    public List<String> getAllAirportNames() {
 
         List<Airport> cIDs = new ArrayList<>();
         List<String> returnList = new ArrayList<>();
@@ -191,10 +186,10 @@ public class AirportController {
         try {
             EntityManager em = emf.createEntityManager();
 
-            String queryString = new String("SELECT c FROM AIRPORTS c");
+            String queryString = new String("SELECT A FROM Airport A");
             Query q = em.createQuery(queryString);
 
-            logger.info("\n\nGet all AirportIDs TA begins");
+            logger.info("\n\nGet all AirportNames TA begins");
             tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
             tm.begin();
 
@@ -203,14 +198,14 @@ public class AirportController {
             cIDs = q.getResultList();
 
             for (Airport c : cIDs) {
-                returnList.add(c.getAirport_id());
+                returnList.add(c.getNAME());
             }
 
             long queryEnd = System.currentTimeMillis();
             em.flush();
             em.close();
             tm.commit();
-            logger.info("\n\nGet all AirportIDs TA ends");
+            logger.info("\n\nGet all AirportNames TA ends");
             long queryTime = queryEnd - queryStart;
             logger.info("\n\nFound " + cIDs.size() + " airport IDs in " + queryTime + " ms.\n\n");
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {

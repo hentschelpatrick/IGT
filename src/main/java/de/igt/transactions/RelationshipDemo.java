@@ -1,13 +1,17 @@
 package de.igt.transactions;
 
 import de.igt.controllers.AirportController;
+import de.igt.controllers.CustomerController;
 import de.igt.controllers.FlightController;
-import de.igt.models.Airport;
+import de.igt.controllers.FlightSegmentController;
+import de.igt.models.Customer;
 import de.igt.models.Flight;
+import de.igt.models.Status;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.transaction.TransactionManager;
+import java.util.Date;
 
 public class RelationshipDemo {
     static TransactionManager tm = com.arjuna.ats.jta.TransactionManager.transactionManager();
@@ -17,39 +21,32 @@ public class RelationshipDemo {
             "OGM_MYSQL");
 
 
-    public static void main(String[] args) {
-
-        Flight flight1 = new Flight();
-        flight1.setType("??");
-        flight1.setDepartureTime("11:12");
-        flight1.setPriceEcoClass(1321);
-        flight1.setPriceFirstClass(12312);
-        flight1.setSeatsEco(12);
-        flight1.setSeatsFirstClass(131);
-        flight1.setTimeOfArrival("14:12");
-        flight1.setFlightID("A1");
-
+    public static void main(String[] args) throws InterruptedException {
 
         AirportController airportController = new AirportController();
-        airportController.createAirport("FRA", "FFF", "DE", "asdasd asd",
-                4, 1, flight1);
-        Airport airport = airportController.getAirports("FRA");
-
+        CustomerController customerController = new CustomerController();
         FlightController flightController = new FlightController();
-        flightController.createFlight("FAAD", "9142", "13123", "SDA",
-                1312, 41241, 12, 32, airport);
-        Flight flight = flightController.getFlight("FAAD");
-        System.out.println("Flight: ".concat(flight.toString()));
-        Flight flight_u1 = flightController.getFlight("A1");
-        flight_u1.setAirport(airport);
-        flightController.updateFlight(flight_u1);
+        FlightSegmentController flightSegmentController = new FlightSegmentController();
 
-        System.out.println();
-        airport.addFlight(flight);
-        airport.addFlight(flight1);
+        airportController.createAirport("FRA", "DE", "SFAKSD", 4, 5);
+        airportController.createAirport("FRA2", "DE", "SDS", 5, 12);
 
-        System.out.println("Airport flights from: ".concat(airport.getFlights().toString()));
+        customerController.createCustomer("test@test.de", "scheiße", "nein",
+                "skdoasd", "10322312", 14, "DE", 0, 0, Status.NONE);
 
+        flightController.createFlight("FASD", new Date(), new Date(), "TES", 12312, 123, 21, 43);
+
+        flightSegmentController.createFlightsegment("Flight1", airportController.getAirports("FRA"),
+                airportController.getAirports("FRA2"), 19321);
+
+        Flight flight = flightController.getFlight("FASD");
+        flight.getFlightSegmentList().add(flightSegmentController.getFlightsegments("Flight1"));
+        flightController.updateFlight(flight);
+
+
+        Thread.sleep(10000);
+        airportController.deleteAllAirports();
+        customerController.deleteAllCustomers();
         System.exit(0);
     }
 }

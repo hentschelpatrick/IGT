@@ -24,6 +24,7 @@ public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
+        /*
         logger.setLevel(Level.ERROR);
 
         CustomerController customerController = new CustomerController();
@@ -75,7 +76,7 @@ public class Main {
 
         customerController.deleteCustomer("test@test.de");
         airportController.deleteAirport("FRA");
-        flightController.deleteFlight(flight.getFlightID());
+        flightController.deleteFlight(flight.getFLIGHT_ID());
         flightSegmentController.deleteFlightsegment(flightSegment.getName());
 
         System.out.println("Deleted Flight: ".concat(flight.toString()));
@@ -83,5 +84,6 @@ public class Main {
         System.out.println("Deleted Customer: ".concat(customer.toString()));
         System.out.println("Deleted FlightSegment: ".concat(flightSegment.toString()));
         System.exit(0);
+        */
     }
 }

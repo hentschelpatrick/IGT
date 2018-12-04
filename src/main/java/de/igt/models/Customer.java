@@ -2,30 +2,110 @@ package de.igt.models;
 
 
 import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Customer")
 @Table(name = "CUSTOMERS")
 public class Customer implements Serializable {
     @Id
     @Column
-    private String email;
+    private String EMAIL;
+    private String FIRST_NAME;
+    private String LAST_NAME;
+    private String ADDRESS;
+    private String COUNTRY;
+    private String PHONE_TYPE;
+    private int AGE;
 
-    private String firstname;
-    private String lastname;
-    private String address;
-    private String country;
-    private String creditCard;
-    private String phonenumber;
-    private long miles_flown_year;
-    private long total_miles_flown;
+    private long MILES_FLOWN_YEAR;
+    private long TOTAL_MILES_FLOWN;
+
+
+    @ManyToMany
+    public Set<Flight> FLIGHTS = new HashSet<Flight>();
+
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
 
     public Customer() {
+    }
+
+    public String getEMAIL() {
+        return EMAIL;
+    }
+
+    public int getAGE() {
+        return AGE;
+    }
+
+    public void setAGE(int AGE) {
+        this.AGE = AGE;
+    }
+
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
+    }
+
+    public String getFIRST_NAME() {
+        return FIRST_NAME;
+    }
+
+    public void setFIRST_NAME(String FIRST_NAME) {
+        this.FIRST_NAME = FIRST_NAME;
+    }
+
+    public String getLAST_NAME() {
+        return LAST_NAME;
+    }
+
+    public void setLAST_NAME(String LAST_NAME) {
+        this.LAST_NAME = LAST_NAME;
+    }
+
+    public String getADDRESS() {
+        return ADDRESS;
+    }
+
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
+    }
+
+    public String getCOUNTRY() {
+        return COUNTRY;
+    }
+
+    public void setCOUNTRY(String COUNTRY) {
+        this.COUNTRY = COUNTRY;
+    }
+
+    public String getPHONE_TYPE() {
+        return PHONE_TYPE;
+    }
+
+    public void setPHONE_TYPE(String PHONE_TYPE) {
+        this.PHONE_TYPE = PHONE_TYPE;
+    }
+
+    public long getMILES_FLOWN_YEAR() {
+        return MILES_FLOWN_YEAR;
+    }
+
+    public void setMILES_FLOWN_YEAR(long MILES_FLOWN_YEAR) {
+        this.MILES_FLOWN_YEAR = MILES_FLOWN_YEAR;
+    }
+
+    public long getTOTAL_MILES_FLOWN() {
+        return TOTAL_MILES_FLOWN;
+    }
+
+    public void setTOTAL_MILES_FLOWN(long TOTAL_MILES_FLOWN) {
+        this.TOTAL_MILES_FLOWN = TOTAL_MILES_FLOWN;
     }
 
     public Status getStatus() {
@@ -36,91 +116,27 @@ public class Customer implements Serializable {
         this.status = status;
     }
 
-    public String getEmail() {
-        return email;
+    public Set<Flight> getFLIGHTS() {
+        return FLIGHTS;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCreditCard() {
-        return creditCard;
-    }
-
-    public void setCreditCard(String creditCard) {
-        this.creditCard = creditCard;
-    }
-
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public long getMiles_flown_year() {
-        return miles_flown_year;
-    }
-
-    public void setMiles_flown_year(long miles_flown_year) {
-        this.miles_flown_year = miles_flown_year;
-    }
-
-    public long getTotal_miles_flown() {
-        return total_miles_flown;
-    }
-
-    public void setTotal_miles_flown(long total_miles_flown) {
-        this.total_miles_flown = total_miles_flown;
+    public void setFLIGHTS(Set<Flight> FLIGHTS) {
+        this.FLIGHTS = FLIGHTS;
     }
 
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("email", email)
-                .add("firstname", firstname)
-                .add("lastname", lastname)
-                .add("address", address)
-                .add("country", country)
-                .add("creditCard", creditCard)
-                .add("phonenumber", phonenumber)
-                .add("miles_flown_year", miles_flown_year)
-                .add("total_miles_flown", total_miles_flown)
+                .add("EMAIL", EMAIL)
+                .add("FIRST_NAME", FIRST_NAME)
+                .add("LAST_NAME", LAST_NAME)
+                .add("ADDRESS", ADDRESS)
+                .add("COUNTRY", COUNTRY)
+                .add("PHONE_TYPE", PHONE_TYPE)
+                .add("MILES_FLOWN_YEAR", MILES_FLOWN_YEAR)
+                .add("TOTAL_MILES_FLOWN", TOTAL_MILES_FLOWN)
                 .add("status", status)
+                .add("Flights: ", this.FLIGHTS)
                 .toString();
     }
 }

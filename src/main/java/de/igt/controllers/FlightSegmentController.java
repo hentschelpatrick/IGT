@@ -1,5 +1,6 @@
 package de.igt.controllers;
 
+import de.igt.models.Airport;
 import de.igt.models.FlightSegment;
 import de.igt.tools.Config;
 import org.apache.log4j.Logger;
@@ -21,13 +22,12 @@ public class FlightSegmentController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createFlightsegment(String name, String departureAirport, String arrivalAirport, int distanceInMiles) {
+    public void createFlightsegment(String name, Airport departureAirport, Airport arrivalAirport, int distanceInMiles) {
         FlightSegment flightsegments = new FlightSegment();
-        flightsegments.setName(name);
-        flightsegments.setDeparture_airport(departureAirport);
-        flightsegments.setArrival_airport(arrivalAirport);
-        flightsegments.setDistance_in_miles(distanceInMiles);
-
+        flightsegments.setNAME(name);
+        flightsegments.setDEPARTURE_AIRPORT(departureAirport);
+        flightsegments.setARRIVAL_AIRPORT(arrivalAirport);
+        flightsegments.setDISTANCE_MILES(distanceInMiles);
         try {
             logger.info("\n\nCreating Flightsegments TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -56,7 +56,7 @@ public class FlightSegmentController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            FlightSegment fsUpdate = em.find(FlightSegment.class, flightsegment.getName());
+            FlightSegment fsUpdate = em.find(FlightSegment.class, flightsegment.getNAME());
             logger.info("\n\nFound flightsegment: " + fsUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating flightsegment...");
             fsUpdate = flightsegment;
@@ -186,7 +186,7 @@ public class FlightSegmentController {
         try {
             EntityManager em = emf.createEntityManager();
 
-            String queryString = new String("SELECT c FROM FLIGHTSEGMENTS c");
+            String queryString = new String("SELECT E FROM FlightSegment E");
             Query q = em.createQuery(queryString);
 
             logger.info("\n\nGet all FlightsegmentNames TA begins");
@@ -198,7 +198,7 @@ public class FlightSegmentController {
             cIDs = q.getResultList();
 
             for (FlightSegment c : cIDs) {
-                returnList.add(c.getName());
+                returnList.add(c.getNAME());
             }
 
             long queryEnd = System.currentTimeMillis();

@@ -24,17 +24,17 @@ public class CustomerController {
     //build the EntityManagerFactory as you would build in in Hibernate ORM
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
-    public void createCustomer(String email, String firstname, String lastname, String address, String phonenumber, String country, String creditcard, long miles_flown_year, long total_miles_flown, Status status) {
+    public void createCustomer(String email, String firstname, String lastname, String address, String phonenumber, int age, String country, long miles_flown_year, long total_miles_flown, Status status) {
         Customer customer = new Customer();
-        customer.setEmail(email);
-        customer.setFirstname(firstname);
-        customer.setLastname(lastname);
-        customer.setAddress(address);
-        customer.setCountry(country);
-        customer.setCreditCard(creditcard);
-        customer.setMiles_flown_year(miles_flown_year);
-        customer.setTotal_miles_flown(total_miles_flown);
-        customer.setPhonenumber(phonenumber);
+        customer.setEMAIL(email);
+        customer.setFIRST_NAME(firstname);
+        customer.setLAST_NAME(lastname);
+        customer.setADDRESS(address);
+        customer.setCOUNTRY(country);
+        customer.setAGE(age);
+        customer.setMILES_FLOWN_YEAR(miles_flown_year);
+        customer.setTOTAL_MILES_FLOWN(total_miles_flown);
+        customer.setPHONE_TYPE(phonenumber);
         customer.setStatus(status);
 
         try {
@@ -65,7 +65,7 @@ public class CustomerController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            Customer customerToUpdate = em.find(Customer.class, c.getEmail());
+            Customer customerToUpdate = em.find(Customer.class, c.getEMAIL());
             logger.info("\n\nFound customer: " + customerToUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating customer...");
             customerToUpdate = c;
@@ -113,7 +113,7 @@ public class CustomerController {
         }
     }
 
-    public void deleteAllCustomer() {
+    public void deleteAllCustomers() {
         List<String> cust;
         try {
             cust = getAllCustomerMails();
@@ -198,7 +198,7 @@ public class CustomerController {
         try {
             EntityManager em = emf.createEntityManager();
 
-            String queryString = new String("SELECT c FROM CUSTOMERS c");
+            String queryString = new String("SELECT E FROM Customer E");
             Query q = em.createQuery(queryString);
 
             logger.info("\n\nGet all customerIDs TA begins");
@@ -210,7 +210,7 @@ public class CustomerController {
             cIDs = q.getResultList();
 
             for (Customer c : cIDs) {
-                returnList.add(c.getEmail());
+                returnList.add(c.getEMAIL());
             }
 
             long queryEnd = System.currentTimeMillis();

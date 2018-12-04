@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.transaction.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FlightController {
@@ -21,19 +22,18 @@ public class FlightController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createFlight(String flightID, String departureTime, String arrivalTime, String type, int priceFirstClass,
-                             int priceEcoClass, int seatsEco, int seatsFirstClass, Airport airport) {
+    public void createFlight(String flightID, Date departureTime, Date arrivalTime, String type, int priceFirstClass,
+                             int priceEcoClass, int seatsEco, int seatsFirstClass) {
         Flight flight = new Flight();
 
-        flight.setFlightID(flightID);
-        flight.setDepartureTime(departureTime);
-        flight.setTimeOfArrival(arrivalTime);
-        flight.setType(type);
-        flight.setPriceFirstClass(priceFirstClass);
-        flight.setPriceEcoClass(priceEcoClass);
-        flight.setSeatsEco(seatsEco);
-        flight.setSeatsFirstClass(seatsFirstClass);
-        flight.setAirport(airport);
+        flight.setFLIGHT_ID(flightID);
+        flight.setDEPARTURE_TIME(departureTime);
+        flight.setARRIVAL_TIME(arrivalTime);
+        flight.setTYPE(type);
+        flight.setPRICE_FIRST_CLASS(priceFirstClass);
+        flight.setPRICE_ECO_CLASS(priceEcoClass);
+        flight.setSEATS_ECO_CLASS(seatsEco);
+        flight.setSEATS_FIRST_CLASS(seatsFirstClass);
 
         try {
             logger.info("\n\nCreating Flight TA begins\n\n");
@@ -62,7 +62,7 @@ public class FlightController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            Flight flightUpdate = em.find(Flight.class, flight.getFlightID());
+            Flight flightUpdate = em.find(Flight.class, flight.getFLIGHT_ID());
             logger.info("\n\nFound flight: " + flightUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating flight...");
             flightUpdate = flight;
@@ -101,8 +101,6 @@ public class FlightController {
             logger.info("\n\nUpdate flight TA ends");
             long queryTime = queryEnd - queryStart;
             logger.info("\n\nUpdates of " + flightList.size() + " flights successfully persisted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " UPDATE: " + cList.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
         } catch (NotSupportedException | SystemException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
@@ -124,8 +122,6 @@ public class FlightController {
             long queryTime = queryEnd - queryStart;
 
             logger.info("\n\n" + flights.size() + " airport successfully deleted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -188,7 +184,7 @@ public class FlightController {
         try {
             EntityManager em = emf.createEntityManager();
 
-            String queryString = new String("SELECT c FROM FLIGHTS c");
+            String queryString = new String("SELECT E FROM Flight E");
             Query q = em.createQuery(queryString);
 
             logger.info("\n\nGet all FlightIDs TA begins");
@@ -200,7 +196,7 @@ public class FlightController {
             cIDs = q.getResultList();
 
             for (Flight c : cIDs) {
-                returnList.add(c.getFlightID());
+                returnList.add(c.getFLIGHT_ID());
             }
 
             long queryEnd = System.currentTimeMillis();

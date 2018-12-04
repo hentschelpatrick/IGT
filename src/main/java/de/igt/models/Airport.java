@@ -5,102 +5,68 @@ import com.google.common.base.Objects;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "Airport")
 @Table(name = "AIRPORTS")
 public class Airport {
     @Id
-    private String airport_id;
-    private String name;
-    private String country;
-    private String address;
-    private int amount_international_landingsites;
-    private int amount_national_landingsites;
-    private int total_amount_landingsites;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "airport", fetch = FetchType.EAGER)
-    private List<Flight> flights;
+    private String NAME;
+    private String COUNTRY;
+    private String ADDRESS;
+    private int AMOUNT_INTERNATIONAL_LANDINGSITES;
+    private int AMOUNT_NATIONAL_LANDINGSITES;
 
     public Airport() {
     }
 
-
-    public String getAirport_id() {
-        return airport_id;
+    public String getNAME() {
+        return NAME;
     }
 
-    public void setAirport_id(String airport_id) {
-        this.airport_id = airport_id;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
-    public String getName() {
-        return name;
+    public String getCOUNTRY() {
+        return COUNTRY;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCOUNTRY(String COUNTRY) {
+        this.COUNTRY = COUNTRY;
     }
 
-    public String getCountry() {
-        return country;
+    public String getADDRESS() {
+        return ADDRESS;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setADDRESS(String ADDRESS) {
+        this.ADDRESS = ADDRESS;
     }
 
-    public String getAddress() {
-        return address;
+    public int getAMOUNT_INTERNATIONAL_LANDINGSITES() {
+        return AMOUNT_INTERNATIONAL_LANDINGSITES;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAMOUNT_INTERNATIONAL_LANDINGSITES(int AMOUNT_INTERNATIONAL_LANDINGSITES) {
+        this.AMOUNT_INTERNATIONAL_LANDINGSITES = AMOUNT_INTERNATIONAL_LANDINGSITES;
     }
 
-    public int getAmount_international_landingsites() {
-        return amount_international_landingsites;
+    public int getAMOUNT_NATIONAL_LANDINGSITES() {
+        return AMOUNT_NATIONAL_LANDINGSITES;
     }
 
-    public void setAmount_international_landingsites(int amount_international_landingsites) {
-        this.amount_international_landingsites = amount_international_landingsites;
-        updateTotalLandingsites();
+    public void setAMOUNT_NATIONAL_LANDINGSITES(int AMOUNT_NATIONAL_LANDINGSITES) {
+        this.AMOUNT_NATIONAL_LANDINGSITES = AMOUNT_NATIONAL_LANDINGSITES;
     }
 
-    public int getAmount_national_landingsites() {
-        return amount_national_landingsites;
-    }
-
-    public void setAmount_national_landingsites(int amount_national_landingsites) {
-        this.amount_national_landingsites = amount_national_landingsites;
-        updateTotalLandingsites();
-    }
-
-    private void updateTotalLandingsites() {
-        this.total_amount_landingsites = this.amount_national_landingsites + this.amount_international_landingsites;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public List<Flight> getFlights() {
-        return flights;
-    }
-
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
-    }
-
-    public void addFlight(Flight flight) {
-        this.flights.add(flight);
-    }
 
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("airport_id", airport_id)
-                .add("name", name)
-                .add("country", country)
-                .add("address", address)
-                .add("amount_international_landingsites", amount_international_landingsites)
-                .add("amount_national_landingsites", amount_national_landingsites)
-                .add("total_amount_landingsites", total_amount_landingsites)
+                .add("NAME", NAME)
+                .add("COUNTRY", COUNTRY)
+                .add("ADDRESS", ADDRESS)
+                .add("AMOUNT_INTERNATIONAL_LANDINGSITES", AMOUNT_INTERNATIONAL_LANDINGSITES)
+                .add("AMOUNT_NATIONAL_LANDINGSITES", AMOUNT_NATIONAL_LANDINGSITES)
                 .toString();
     }
 }
