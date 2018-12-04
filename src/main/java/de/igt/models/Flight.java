@@ -18,7 +18,8 @@ public class Flight {
     private int priceEcoClass;
     private int seatsEco;
     private int seatsFirstClass;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "airport_id")
     private Airport airport;
 
     public Flight() {

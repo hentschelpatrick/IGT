@@ -16,7 +16,8 @@ public class Airport {
     private int amount_international_landingsites;
     private int amount_national_landingsites;
     private int total_amount_landingsites;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "airport", fetch = FetchType.EAGER)
     private List<Flight> flights;
 
     public Airport() {
@@ -77,7 +78,7 @@ public class Airport {
         this.total_amount_landingsites = this.amount_national_landingsites + this.amount_international_landingsites;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Flight> getFlights() {
         return flights;
     }

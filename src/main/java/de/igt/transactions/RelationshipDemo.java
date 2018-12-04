@@ -40,13 +40,16 @@ public class RelationshipDemo {
                 1312, 41241, 12, 32, airport);
         Flight flight = flightController.getFlight("FAAD");
         System.out.println("Flight: ".concat(flight.toString()));
+        Flight flight_u1 = flightController.getFlight("A1");
+        flight_u1.setAirport(airport);
+        flightController.updateFlight(flight_u1);
 
         System.out.println();
-
         airport.addFlight(flight);
+        airport.addFlight(flight1);
 
         System.out.println("Airport flights from: ".concat(airport.getFlights().toString()));
 
-
+        System.exit(0);
     }
 }
