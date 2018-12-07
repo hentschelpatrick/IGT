@@ -7,7 +7,7 @@ import java.util.*;
 
 public class FlightSegmentPopulator {
 
-    public static List<FlightSegment> populateAirportAsList(int numberOfFlightSegments) {
+    public static List<FlightSegment> populateFlightSegmentAsList(int numberOfFlightSegments) {
 
         List<FlightSegment> fsList = new ArrayList<>();
 

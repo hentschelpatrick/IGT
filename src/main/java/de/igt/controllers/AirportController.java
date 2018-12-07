@@ -1,6 +1,7 @@
 package de.igt.controllers;
 
 import de.igt.models.Airport;
+import de.igt.tools.AirportPopulator;
 import de.igt.tools.Config;
 import org.apache.log4j.Logger;
 
@@ -46,6 +47,53 @@ public class AirportController {
         } catch (SystemException | NotSupportedException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
+    }
+
+    public void createAirports() {
+
+        List<Airport> aList = AirportPopulator.populateAirportAsList(Config.NUMBER_OF_AIRPOTS);
+
+        try {
+            logger.info("Create airpots TA begins");
+            EntityManager em = emf.createEntityManager();
+            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
+            tm.begin();
+
+            long queryStart = System.currentTimeMillis();
+
+            for (Airport c : aList) {
+                em.persist(c);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+
+            em.flush();
+            em.close();
+            tm.commit();
+
+            logger.info("Create airpots TA ends");
+
+            long queryTime = queryEnd - queryStart;
+
+            logger.info(aList.size() + " customers airpots in DB in " + queryTime + " ms.");
+
+            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " CREATE: " + cList.size() + " " + queryTime + "\n");
+
+            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+
+
+        } catch (NotSupportedException e) {
+            e.printStackTrace();
+        } catch (SystemException e) {
+            e.printStackTrace();
+        } catch (HeuristicMixedException e) {
+            e.printStackTrace();
+        } catch (HeuristicRollbackException e) {
+            e.printStackTrace();
+        } catch (RollbackException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void updateAirport(Airport airport) {

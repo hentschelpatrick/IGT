@@ -6,7 +6,7 @@ import java.util.*;
 
 public class FlightPopulator {
 
-    public static List<Flight> populateAirportAsList(int numberOfFlights) {
+    public static List<Flight> populateFlightAsList(int numberOfFlights) {
 
         List<Flight> fList = new ArrayList<>();
 

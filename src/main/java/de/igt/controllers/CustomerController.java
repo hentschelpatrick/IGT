@@ -3,6 +3,7 @@ package de.igt.controllers;
 
 import de.igt.models.Customer;
 import de.igt.tools.Config;
+import de.igt.tools.CustomerPopulator;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
@@ -54,6 +55,54 @@ public class CustomerController {
         } catch (SystemException | NotSupportedException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
+    }
+
+    public void createCustomers() {
+
+        List<Customer> cList = CustomerPopulator.populateCustomerAsList(Config.NUMBER_OF_CUSTOMERS);
+
+
+        try {
+            logger.info("Create customers TA begins");
+            EntityManager em = emf.createEntityManager();
+            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
+            tm.begin();
+
+            long queryStart = System.currentTimeMillis();
+
+            for (Customer c : cList) {
+                em.persist(c);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+
+            em.flush();
+            em.close();
+            tm.commit();
+
+            logger.info("Create customers TA ends");
+
+            long queryTime = queryEnd - queryStart;
+
+            logger.info(cList.size() + " customers persisted in DB in " + queryTime + " ms.");
+
+            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " CREATE: " + cList.size() + " " + queryTime + "\n");
+
+            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+
+
+        } catch (NotSupportedException e) {
+            e.printStackTrace();
+        } catch (SystemException e) {
+            e.printStackTrace();
+        } catch (HeuristicMixedException e) {
+            e.printStackTrace();
+        } catch (HeuristicRollbackException e) {
+            e.printStackTrace();
+        } catch (RollbackException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void updateCustomer(Customer c) {
