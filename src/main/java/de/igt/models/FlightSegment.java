@@ -2,10 +2,8 @@ package de.igt.models;
 
 
 import com.google.common.base.Objects;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "FlightSegment")
 @Table(name = "FLIGHTSEGMENTS")
@@ -16,7 +14,7 @@ public class FlightSegment {
     @Column
     private long DISTANCE_MILES;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     private Flight FLIGHT;
 
     @OneToOne

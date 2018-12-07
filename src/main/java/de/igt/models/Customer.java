@@ -1,11 +1,10 @@
 package de.igt.models;
 
-
-import com.google.common.base.Objects;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name = "Customer")
@@ -22,8 +21,10 @@ public class Customer implements Serializable {
     private String ADDRESS;
     @Column
     private String COUNTRY;
-    @Column
-    private String PHONE_TYPE;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER, mappedBy = "COSTUMER")
+    private List<PhoneType> PHONE_TYPE = new ArrayList<>();
+
     @Column
     private int AGE;
     @Column
@@ -91,14 +92,6 @@ public class Customer implements Serializable {
         this.COUNTRY = COUNTRY;
     }
 
-    public String getPHONE_TYPE() {
-        return PHONE_TYPE;
-    }
-
-    public void setPHONE_TYPE(String PHONE_TYPE) {
-        this.PHONE_TYPE = PHONE_TYPE;
-    }
-
     public long getMILES_FLOWN_YEAR() {
         return MILES_FLOWN_YEAR;
     }
@@ -131,19 +124,5 @@ public class Customer implements Serializable {
         this.FLIGHTS = FLIGHTS;
     }
 
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("EMAIL", EMAIL)
-                .add("FIRST_NAME", FIRST_NAME)
-                .add("LAST_NAME", LAST_NAME)
-                .add("ADDRESS", ADDRESS)
-                .add("COUNTRY", COUNTRY)
-                .add("PHONE_TYPE", PHONE_TYPE)
-                .add("MILES_FLOWN_YEAR", MILES_FLOWN_YEAR)
-                .add("TOTAL_MILES_FLOWN", TOTAL_MILES_FLOWN)
-                .add("status", status)
-                .add("Flights: ", this.FLIGHTS)
-                .toString();
-    }
+
 }
