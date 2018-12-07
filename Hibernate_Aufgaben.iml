@@ -9,7 +9,7 @@
           <factory-entry name="OGM_CASSANDRA" />
           <factory-entry name="OGM_INFINISPAN" />
           <factory-entry name="OGM_MONGODB" />
-          <factory-entry name="OGM_MYSQL" />
+          <factory-entry name="OGM_MYSQL" value="e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc" />
           <factory-entry name="OGM_NEO4J" />
           <factory-entry name="OGM_POSTGRESQL" />
           <factory-entry name="OGM_REDIS" />
