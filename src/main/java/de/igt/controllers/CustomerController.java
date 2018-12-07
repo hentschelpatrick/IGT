@@ -237,6 +237,37 @@ public class CustomerController {
         return cust;
     }
 
+    public List<Customer> getAllCustomers() {
+
+        List<Customer> cIDs = new ArrayList<>();
+
+        try {
+            EntityManager em = emf.createEntityManager();
+
+            String queryString = new String("SELECT E FROM Customer E");
+            Query q = em.createQuery(queryString);
+
+            logger.info("\n\nGet all customerIDs TA begins");
+            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
+            tm.begin();
+
+            long queryStart = System.currentTimeMillis();
+
+            cIDs = q.getResultList();
+
+            long queryEnd = System.currentTimeMillis();
+            em.flush();
+            em.close();
+            tm.commit();
+            logger.info("\n\nGet all Custom_CustomerIDs TA ends");
+            long queryTime = queryEnd - queryStart;
+            logger.info("\n\nFound " + cIDs.size() + " customer IDs in " + queryTime + " ms.\n\n");
+        } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
+            e.printStackTrace();
+        }
+        return cIDs;
+    }
+
 
     public List<String> getAllCustomerMails() {
 
