@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class PhoneType {
     @Id
     @Column
-    private int PHONE_ID;
+    private String PHONE_ID;
     @Column
     private int PHONE_NUMBER;
     @Column
@@ -19,11 +19,12 @@ public class PhoneType {
     public PhoneType() {
     }
 
-    public int getPHONE_ID() {
+
+    public String getPHONE_ID() {
         return PHONE_ID;
     }
 
-    public void setPHONE_ID(int PHONE_ID) {
+    public void setPHONE_ID(String PHONE_ID) {
         this.PHONE_ID = PHONE_ID;
     }
 
@@ -54,7 +55,7 @@ public class PhoneType {
     @Override
     public String toString() {
         return "PhoneType{" +
-                "PHONE_ID=" + PHONE_ID +
+                "PHONE_ID='" + PHONE_ID + '\'' +
                 ", PHONE_NUMBER=" + PHONE_NUMBER +
                 ", PHONE_TYPE='" + PHONE_TYPE + '\'' +
                 ", COSTUMER=" + COSTUMER +
