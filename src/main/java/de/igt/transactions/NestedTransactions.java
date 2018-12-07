@@ -26,7 +26,6 @@ public class NestedTransactions {
             customer.setAGE(10);
             customer.setMILES_FLOWN_YEAR(12314241203L);
             customer.setTOTAL_MILES_FLOWN(123131L);
-            customer.setPHONE_TYPE("01762394201");
             customer.setStatus(Status.NONE);
 
             logger.info("\n\nTA begins\n\n");

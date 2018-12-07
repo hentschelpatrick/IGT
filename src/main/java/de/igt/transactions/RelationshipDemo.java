@@ -32,7 +32,7 @@ public class RelationshipDemo {
         airportController.createAirport("FRA2", "DE", "SDS", 5, 12);
 
         customerController.createCustomer("test@test.de", "scheiße", "nein",
-                "skdoasd", "10322312", 14, "DE", 0, 0, Status.NONE);
+                "skdoasd",14, "DE", 0, 0, Status.NONE);
 
         flightController.createFlight("FASD", new Date(), new Date(), "TES", 12312, 123, 21, 43);
 

@@ -24,7 +24,7 @@ public class CustomerController {
     //build the EntityManagerFactory as you would build in in Hibernate ORM
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
-    public void createCustomer(String email, String firstname, String lastname, String address, String phonenumber, int age, String country, long miles_flown_year, long total_miles_flown, Status status) {
+    public void createCustomer(String email, String firstname, String lastname, String address, int age, String country, long miles_flown_year, long total_miles_flown, Status status) {
         Customer customer = new Customer();
         customer.setEMAIL(email);
         customer.setFIRST_NAME(firstname);
@@ -34,7 +34,6 @@ public class CustomerController {
         customer.setAGE(age);
         customer.setMILES_FLOWN_YEAR(miles_flown_year);
         customer.setTOTAL_MILES_FLOWN(total_miles_flown);
-        customer.setPHONE_TYPE(phonenumber);
         customer.setStatus(status);
 
         try {
