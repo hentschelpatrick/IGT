@@ -25,6 +25,14 @@ public class Airport implements Serializable {
     public Airport() {
     }
 
+    public Airport(String NAME, String COUNTRY, String ADDRESS, int AMOUNT_INTERNATIONAL_LANDINGSITES, int AMOUNT_NATIONAL_LANDINGSITES) {
+        this.NAME = NAME;
+        this.COUNTRY = COUNTRY;
+        this.ADDRESS = ADDRESS;
+        this.AMOUNT_INTERNATIONAL_LANDINGSITES = AMOUNT_INTERNATIONAL_LANDINGSITES;
+        this.AMOUNT_NATIONAL_LANDINGSITES = AMOUNT_NATIONAL_LANDINGSITES;
+    }
+
     public String getNAME() {
         return NAME;
     }
