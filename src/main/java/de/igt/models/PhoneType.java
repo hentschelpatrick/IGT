@@ -1,24 +1,25 @@
 package de.igt.models;
 
-import javax.persistence.*;
+import org.hibernate.search.annotations.Indexed;
 
-@Entity(name = "PhoneType")
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Indexed
 @Table(name = "PHONETYPE")
-public class PhoneType {
+public class PhoneType implements Serializable {
     @Id
-    @Column
     private String PHONE_ID;
     @Column
     private int PHONE_NUMBER;
     @Column
     private String PHONE_TYPE;
-
     @ManyToOne
     private Customer COSTUMER;
 
     public PhoneType() {
     }
-
 
     public String getPHONE_ID() {
         return PHONE_ID;

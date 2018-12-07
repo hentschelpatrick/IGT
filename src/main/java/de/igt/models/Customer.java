@@ -1,5 +1,7 @@
 package de.igt.models;
 
+import org.hibernate.search.annotations.Indexed;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,11 +9,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity(name = "Customer")
+@Entity
+@Indexed
 @Table(name = "CUSTOMERS")
 public class Customer implements Serializable {
     @Id
-    @Column
     private String EMAIL;
     @Column
     private String FIRST_NAME;
@@ -32,14 +34,13 @@ public class Customer implements Serializable {
     @Column
     private long TOTAL_MILES_FLOWN;
 
-
     @ManyToMany
     public Set<Flight> FLIGHTS = new HashSet<Flight>();
-
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
+
 
     public Customer() {
     }
@@ -125,4 +126,20 @@ public class Customer implements Serializable {
     }
 
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "EMAIL='" + EMAIL + '\'' +
+                ", FIRST_NAME='" + FIRST_NAME + '\'' +
+                ", LAST_NAME='" + LAST_NAME + '\'' +
+                ", ADDRESS='" + ADDRESS + '\'' +
+                ", COUNTRY='" + COUNTRY + '\'' +
+                ", PHONE_TYPE=" + PHONE_TYPE +
+                ", AGE=" + AGE +
+                ", MILES_FLOWN_YEAR=" + MILES_FLOWN_YEAR +
+                ", TOTAL_MILES_FLOWN=" + TOTAL_MILES_FLOWN +
+                ", FLIGHTS=" + FLIGHTS +
+                ", status=" + status +
+                '}';
+    }
 }

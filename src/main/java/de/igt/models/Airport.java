@@ -1,15 +1,17 @@
 package de.igt.models;
 
 import com.google.common.base.Objects;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-@Entity(name = "Airport")
+@Entity
+@Indexed
 @Table(name = "AIRPORTS")
-public class Airport {
+public class Airport implements Serializable {
     @Id
-    @Column
     private String NAME;
     @Column
     private String COUNTRY;

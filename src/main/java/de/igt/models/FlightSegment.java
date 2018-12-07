@@ -2,36 +2,27 @@ package de.igt.models;
 
 
 import com.google.common.base.Objects;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity(name = "FlightSegment")
+@Entity
+@Indexed
 @Table(name = "FLIGHTSEGMENTS")
-public class FlightSegment {
+public class FlightSegment implements Serializable {
     @Id
-    @Column
     private String NAME;
     @Column
     private long DISTANCE_MILES;
-
     @ManyToOne
     private Flight FLIGHT;
-
     @OneToOne
     private Airport DEPARTURE_AIRPORT;
-
     @OneToOne
     private Airport ARRIVAL_AIRPORT;
 
     public FlightSegment() {
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("NAME", NAME)
-                .add("DISTANCE_MILES", DISTANCE_MILES)
-                .toString();
     }
 
     public String getNAME() {
@@ -50,7 +41,6 @@ public class FlightSegment {
         this.DISTANCE_MILES = DISTANCE_MILES;
     }
 
-
     public Airport getDEPARTURE_AIRPORT() {
         return DEPARTURE_AIRPORT;
     }
@@ -65,6 +55,14 @@ public class FlightSegment {
 
     public Airport getARRIVAL_AIRPORT() {
         return ARRIVAL_AIRPORT;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("NAME", NAME)
+                .add("DISTANCE_MILES", DISTANCE_MILES)
+                .toString();
     }
 
 }

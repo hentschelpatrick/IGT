@@ -2,15 +2,17 @@ package de.igt.models;
 
 
 import com.google.common.base.Objects;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
-@Entity(name = "Flight")
+@Entity
+@Indexed
 @Table(name = "FLIGHTS")
-public class Flight {
+public class Flight implements Serializable {
     @Id
-    @Column
     private String FLIGHT_ID;
     @Column
     private Date DEPARTURE_TIME;
