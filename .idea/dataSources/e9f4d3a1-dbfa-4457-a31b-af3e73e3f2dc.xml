@@ -1109,90 +1109,81 @@
     <table id="279" parent="4" name="CUSTOMERS_FLIGHTS"/>
     <table id="280" parent="4" name="FLIGHTS"/>
     <table id="281" parent="4" name="FLIGHTSEGMENTS"/>
-    <column id="282" parent="277" name="NAME">
+    <table id="282" parent="4" name="PHONETYPE"/>
+    <column id="283" parent="277" name="NAME">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="277" name="ADDRESS">
+    <column id="284" parent="277" name="ADDRESS">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="277" name="AMOUNT_INTERNATIONAL_LANDINGSITES">
+    <column id="285" parent="277" name="AMOUNT_INTERNATIONAL_LANDINGSITES">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="277" name="AMOUNT_NATIONAL_LANDINGSITES">
+    <column id="286" parent="277" name="AMOUNT_NATIONAL_LANDINGSITES">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="277" name="COUNTRY">
+    <column id="287" parent="277" name="COUNTRY">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="287" parent="277" name="PRIMARY">
+    <key id="288" parent="277" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NAME</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="288" parent="278" name="EMAIL">
+    <column id="289" parent="278" name="EMAIL">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="278" name="ADDRESS">
+    <column id="290" parent="278" name="ADDRESS">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="278" name="AGE">
+    <column id="291" parent="278" name="AGE">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="278" name="COUNTRY">
+    <column id="292" parent="278" name="COUNTRY">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="278" name="FIRST_NAME">
+    <column id="293" parent="278" name="FIRST_NAME">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="278" name="LAST_NAME">
+    <column id="294" parent="278" name="LAST_NAME">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="278" name="MILES_FLOWN_YEAR">
+    <column id="295" parent="278" name="MILES_FLOWN_YEAR">
       <Position>7</Position>
       <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="295" parent="278" name="PHONE_TYPE">
-      <Position>8</Position>
-      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="296" parent="278" name="TOTAL_MILES_FLOWN">
-      <Position>9</Position>
+      <Position>8</Position>
       <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="297" parent="278" name="status">
-      <Position>10</Position>
+      <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1286,25 +1277,21 @@ FLIGHTS_FLIGHT_ID</ColNames>
     <column id="314" parent="280" name="PRICE_ECO_CLASS">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="315" parent="280" name="PRICE_FIRST_CLASS">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="316" parent="280" name="SEATS_ECO_CLASS">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="317" parent="280" name="SEATS_FIRST_CLASS">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="318" parent="280" name="TYPE">
@@ -1326,7 +1313,6 @@ FLIGHTS_FLIGHT_ID</ColNames>
     <column id="321" parent="281" name="DISTANCE_MILES">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="322" parent="281" name="ARRIVAL_AIRPORT_NAME">
@@ -1378,6 +1364,42 @@ FLIGHTS_FLIGHT_ID</ColNames>
       <RefSchemaName>ogm_hibernate</RefSchemaName>
       <RefTableName>FLIGHTS</RefTableName>
       <RefColNames>flight_id</RefColNames>
+    </foreign-key>
+    <column id="332" parent="282" name="PHONE_ID">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="333" parent="282" name="PHONE_NUMBER">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="334" parent="282" name="PHONE_TYPE">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="335" parent="282" name="COSTUMER_EMAIL">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="336" parent="282" name="FK7r55wkvp6cx2fre4xc4uh5syx">
+      <ColNames>COSTUMER_EMAIL</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="337" parent="282" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PHONE_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="338" parent="282" name="FK7r55wkvp6cx2fre4xc4uh5syx">
+      <ColNames>COSTUMER_EMAIL</ColNames>
+      <RefSchemaName>ogm_hibernate</RefSchemaName>
+      <RefTableName>CUSTOMERS</RefTableName>
+      <RefColNames>email</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>
