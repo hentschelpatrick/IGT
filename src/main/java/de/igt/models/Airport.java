@@ -9,10 +9,15 @@ import java.util.List;
 @Table(name = "AIRPORTS")
 public class Airport {
     @Id
+    @Column
     private String NAME;
+    @Column
     private String COUNTRY;
+    @Column
     private String ADDRESS;
+    @Column
     private int AMOUNT_INTERNATIONAL_LANDINGSITES;
+    @Column
     private int AMOUNT_NATIONAL_LANDINGSITES;
 
     public Airport() {

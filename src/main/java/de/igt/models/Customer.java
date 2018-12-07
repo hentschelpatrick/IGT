@@ -14,14 +14,21 @@ public class Customer implements Serializable {
     @Id
     @Column
     private String EMAIL;
+    @Column
     private String FIRST_NAME;
+    @Column
     private String LAST_NAME;
+    @Column
     private String ADDRESS;
+    @Column
     private String COUNTRY;
+    @Column
     private String PHONE_TYPE;
+    @Column
     private int AGE;
-
+    @Column
     private long MILES_FLOWN_YEAR;
+    @Column
     private long TOTAL_MILES_FLOWN;
 
 

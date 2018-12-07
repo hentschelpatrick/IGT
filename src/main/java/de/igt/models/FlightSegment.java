@@ -11,7 +11,9 @@ import java.util.List;
 @Table(name = "FLIGHTSEGMENTS")
 public class FlightSegment {
     @Id
+    @Column
     private String NAME;
+    @Column
     private long DISTANCE_MILES;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

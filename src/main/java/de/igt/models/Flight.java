@@ -10,14 +10,21 @@ import java.util.*;
 @Table(name = "FLIGHTS")
 public class Flight {
     @Id
+    @Column
     private String FLIGHT_ID;
-
+    @Column
     private Date DEPARTURE_TIME;
+    @Column
     private Date ARRIVAL_TIME;
+    @Column
     private String TYPE;
+    @Column
     private int PRICE_FIRST_CLASS;
+    @Column
     private int PRICE_ECO_CLASS;
+    @Column
     private int SEATS_ECO_CLASS;
+    @Column
     private int SEATS_FIRST_CLASS;
 
 
