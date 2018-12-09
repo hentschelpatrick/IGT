@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="707c47bc-55cf-41c1-9fa0-77fba2588360" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aufgabe6.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CustomerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CustomerControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CustomerControllerTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -77,13 +74,13 @@
     <session id="-679950595">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="4" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -97,7 +94,7 @@
           <entry key="iml" value="6" />
           <entry key="java" value="336" />
           <entry key="json" value="3" />
-          <entry key="md" value="2" />
+          <entry key="md" value="4" />
           <entry key="properties" value="5" />
           <entry key="sh" value="42" />
           <entry key="sql" value="3" />
@@ -110,7 +107,7 @@
           <entry key="IDEA_MODULE" value="6" />
           <entry key="JAVA" value="336" />
           <entry key="JSON" value="3" />
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="50" />
           <entry key="Properties" value="5" />
           <entry key="Scratch" value="3" />
@@ -123,7 +120,7 @@
           <entry key="iml" value="2" />
           <entry key="java" value="3116" />
           <entry key="json" value="31" />
-          <entry key="md" value="1290" />
+          <entry key="md" value="1692" />
           <entry key="sh" value="11" />
           <entry key="txt" value="13" />
           <entry key="xml" value="10" />
@@ -134,7 +131,7 @@
           <entry key="IDEA_MODULE" value="2" />
           <entry key="JAVA" value="3116" />
           <entry key="JSON" value="31" />
-          <entry key="Markdown" value="1290" />
+          <entry key="Markdown" value="1692" />
           <entry key="PLAIN_TEXT" value="48" />
           <entry key="XML" value="10" />
         </counts>
@@ -144,25 +141,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/CTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="100" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/CustomerControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="100" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+        <entry file="file://$PROJECT_DIR$/aufgabe6.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="300">
+                <caret line="20" column="61" lean-forward="true" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -238,6 +223,7 @@
         <option value="$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerTestController.java" />
         <option value="$PROJECT_DIR$/src/test/java/CustomerControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/CTest.java" />
+        <option value="$PROJECT_DIR$/aufgabe6.md" />
       </list>
     </option>
   </component>
@@ -276,9 +262,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -286,107 +269,20 @@
               <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
               <item name="IGT" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="igt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="igt" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="igt" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="igt" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="igt" type="462c0819:PsiDirectoryNode" />
-              <item name="transactions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IGT" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544369228747" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544369763465" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -517,7 +413,9 @@
       <workItem from="1544281475517" duration="173000" />
       <workItem from="1544288029902" duration="258000" />
       <workItem from="1544304270675" duration="742000" />
-      <workItem from="1544362212430" duration="6568000" />
+      <workItem from="1544362212430" duration="7051000" />
+      <workItem from="1544369886441" duration="191000" />
+      <workItem from="1544370109749" duration="244000" />
     </task>
     <servers />
   </component>
@@ -531,9 +429,12 @@
     <history-entry file="CustomerControllerTest - 2018.12.09 at 16h 18m 28s.xml">
       <configuration name="CustomerControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CustomerControllerTest - 2018.12.09 at 16h 27m 16s.xml">
+      <configuration name="CustomerControllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57735000" />
+    <option name="totallyTimeSpent" value="58653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,7 +449,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66324437" visible="true" weight="0.18168813" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66324437" visible="true" weight="0.18597998" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.33675563" side_tool="true" weight="0.16666667" />
       <window_info id="Designer" order="3" />
@@ -674,9 +575,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -729,9 +627,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/runDocker.bat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/runDocker.bat" />
     <entry file="file://$PROJECT_DIR$/DB_SetUp.sh" />
     <entry file="file://$PROJECT_DIR$/DB_SetUp.bat" />
     <entry file="file://$PROJECT_DIR$/microservices.md">
@@ -914,13 +810,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Neo4JConfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Neo4JConfig.json" />
     <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/tools/FlightPopulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1015,16 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/CustomerControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1032,6 +912,26 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CustomerControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aufgabe6.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="300">
+            <caret line="20" column="61" lean-forward="true" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
