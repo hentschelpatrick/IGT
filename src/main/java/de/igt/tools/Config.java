@@ -3,7 +3,7 @@ package de.igt.tools;
 import java.util.Random;
 
 public class Config {
-    public static final Integer NUMBER_OF_CUSTOMERS = 100;
+    public static final Integer NUMBER_OF_CUSTOMERS = 1;
     public static final Integer NUMBER_OF_AIRPOTS = 100;
     public static final Integer NUMBER_OF_FLIGHTS = 100;
     public static final Integer NUMBER_OF_FLIGHTSEGMENTS = 100;

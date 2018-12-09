@@ -2,6 +2,7 @@ package de.igt.models;
 
 import com.google.common.base.Objects;
 import org.hibernate.search.annotations.Indexed;
+import org.neo4j.kernel.impl.annotations.Documented;
 
 import javax.persistence.*;
 import java.io.Serializable;
