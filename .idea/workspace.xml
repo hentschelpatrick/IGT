@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="707c47bc-55cf-41c1-9fa0-77fba2588360" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerTestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/igt/models/CustomerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/igt/tools/TestPopulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate_Aufgaben.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate_Aufgaben.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CustomerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CustomerControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CustomerControllerTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -90,13 +89,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="AIRPORTS" value="4" />
-          <entry key="CUSTOMERS" value="5" />
+          <entry key="CUSTOMERS" value="8" />
           <entry key="CUSTOMERS_FLIGHTS" value="3" />
           <entry key="FLIGHTS" value="2" />
           <entry key="FLIGHTSEGMENTS" value="5" />
           <entry key="bat" value="8" />
           <entry key="iml" value="6" />
-          <entry key="java" value="323" />
+          <entry key="java" value="336" />
           <entry key="json" value="3" />
           <entry key="md" value="2" />
           <entry key="properties" value="5" />
@@ -107,9 +106,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="19" />
+          <entry key="Database Element" value="22" />
           <entry key="IDEA_MODULE" value="6" />
-          <entry key="JAVA" value="323" />
+          <entry key="JAVA" value="336" />
           <entry key="JSON" value="3" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="50" />
@@ -122,7 +121,7 @@
         <counts>
           <entry key="dummy" value="24" />
           <entry key="iml" value="2" />
-          <entry key="java" value="2976" />
+          <entry key="java" value="3116" />
           <entry key="json" value="31" />
           <entry key="md" value="1290" />
           <entry key="sh" value="11" />
@@ -133,7 +132,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="2976" />
+          <entry key="JAVA" value="3116" />
           <entry key="JSON" value="31" />
           <entry key="Markdown" value="1290" />
           <entry key="PLAIN_TEXT" value="48" />
@@ -144,11 +143,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/CTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="105" selection-end-column="5" />
+            <state relative-caret-position="525">
+              <caret line="35" column="100" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,11 +155,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerTestController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/CustomerControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="555">
+              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="100" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -189,6 +188,9 @@
       <find>CustomerControl</find>
       <find>CustomerController</find>
       <find>delete</find>
+      <find>testB_readCustomerTest</find>
+      <find>testD_updateCustomerTest</find>
+      <find>mil</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,9 +235,9 @@
         <option value="$PROJECT_DIR$/src/test/java/ConfigReaderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/igt/models/CustomerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/igt/tools/TestPopulator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerTestController.java" />
         <option value="$PROJECT_DIR$/src/test/java/CustomerControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/CTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerTestController.java" />
       </list>
     </option>
   </component>
@@ -384,7 +386,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544368128836" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544369228747" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -415,22 +417,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BookFlight">
+  <component name="RunManager" selected="JUnit.CustomerControllerTest">
     <configuration name="BookFlight" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.igt.transactions.BookFlight" />
-      <module name="Hibernate_Aufgaben" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.igt.transactions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.igt.transactions.Main" />
       <module name="Hibernate_Aufgaben" />
       <extension name="coverage">
         <pattern>
@@ -468,18 +457,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConfigReaderTest.testA_readConfigFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate_Aufgaben" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConfigReaderTest" />
+      <option name="METHOD_NAME" value="testA_readConfigFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate_Aufgaben" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerControllerTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.RelationshipDemo" />
       <item itemvalue="Application.NestedTransactions" />
       <item itemvalue="Application.BookFlight" />
+      <item itemvalue="JUnit.ConfigReaderTest.testA_readConfigFile" />
+      <item itemvalue="JUnit.CustomerControllerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerControllerTest" />
+        <item itemvalue="JUnit.ConfigReaderTest.testA_readConfigFile" />
         <item itemvalue="Application.BookFlight" />
         <item itemvalue="Application.NestedTransactions" />
         <item itemvalue="Application.RelationshipDemo" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -508,12 +517,23 @@
       <workItem from="1544281475517" duration="173000" />
       <workItem from="1544288029902" duration="258000" />
       <workItem from="1544304270675" duration="742000" />
-      <workItem from="1544362212430" duration="5535000" />
+      <workItem from="1544362212430" duration="6568000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="ConfigReaderTest_testA_readConfigFile - 2018.12.09 at 16h 10m 49s.xml">
+      <configuration name="ConfigReaderTest.testA_readConfigFile" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerControllerTest - 2018.12.09 at 16h 12m 43s.xml">
+      <configuration name="CustomerControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerControllerTest - 2018.12.09 at 16h 18m 28s.xml">
+      <configuration name="CustomerControllerTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56702000" />
+    <option name="totallyTimeSpent" value="57735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -563,29 +583,30 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6650602" visible="true" weight="0.21530758" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66324437" visible="true" weight="0.18168813" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Persistence" order="2" sideWeight="0.33493975" side_tool="true" visible="true" weight="0.21530758" />
+      <window_info id="Persistence" order="2" sideWeight="0.33675563" side_tool="true" weight="0.16666667" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Learn" order="8" />
-      <window_info anchor="bottom" id="Database Console" order="0" weight="0.32891566" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.32891566" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32891566" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2614458" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32891566" />
-      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32891566" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32891566" />
+      <window_info id="Web" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39638555" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2614458" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32891566" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32891566" />
+      <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32891566" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32891566" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -765,13 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc/schema/ogm_hibernate/table/CUSTOMERS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/net/Socket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -907,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/tools/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/tools/FlightPopulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -954,47 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ConfigReaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/CustomerControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/CTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" column="49" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1609#1623#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="105" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/tools/TestPopulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -1007,8 +973,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerTestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="446">
           <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e9f4d3a1-dbfa-4457-a31b-af3e73e3f2dc/schema/ogm_hibernate/table/CUSTOMERS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/tools/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ConfigReaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/controllers/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="176" column="12" lean-forward="true" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CustomerControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="100" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

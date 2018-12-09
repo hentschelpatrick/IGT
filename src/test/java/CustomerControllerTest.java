@@ -11,9 +11,12 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class CustomerControllerTest {
+    long queryStart, queryEnd, queryTime;
 
     @Before
     public void setUp() throws Exception {
+
+        this.queryStart = System.currentTimeMillis();
 
         CustomerController custController = new CustomerController();
 
@@ -30,10 +33,13 @@ public class CustomerControllerTest {
 
         custController.deleteAllCustomers();
 
-
+        this.queryEnd = System.currentTimeMillis();
+        this.queryTime = queryEnd - queryStart;
+        System.out.println("++++++++++QUERY_TIME FOR OPERATIONS: " + this.queryTime + "++++++++++");
     }
 
 
+    /*
     @Test
     public void testB_readCustomerTest() {
         CustomerController custController = new CustomerController();
@@ -43,7 +49,7 @@ public class CustomerControllerTest {
         assertEquals("test", cTest.getEMAIL(), 0.0001);
 
 
-    }
+    }*/
 
 
     @Test
@@ -59,6 +65,7 @@ public class CustomerControllerTest {
     }
 
 
+    /*
     @Test
     public void testD_updateCustomerTest() {
         CustomerController custController = new CustomerController();
@@ -93,7 +100,7 @@ public class CustomerControllerTest {
         assertEquals("fname_1", custTest.getFIRST_NAME(), 0.0001);
 
 
-    }
+    }*/
 
 
     @Test(expected = NullPointerException.class)
