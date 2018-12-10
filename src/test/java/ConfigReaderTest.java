@@ -11,7 +11,7 @@ public class ConfigReaderTest {
     @Test
     public void testA_readConfigFile() {
         int numberOfCustomers = Config.NUMBER_OF_CUSTOMERS;
-        assertEquals(1, numberOfCustomers, 0.0001);
+        assertEquals(10, numberOfCustomers, 0.0001);
 
         int numberOfAirports = Config.NUMBER_OF_AIRPOTS;
         assertEquals(100, numberOfAirports, 0.0001);

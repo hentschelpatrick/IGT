@@ -1,0 +1,9 @@
+./.idea/
+de.igt.models.Airport/
+de.igt.models.Customer/
+de.igt.models.CustomerTest/
+de.igt.models.Flight/
+de.igt.models.FlightSegment/
+de.igt.models.PhoneType/
+target/
+./target/

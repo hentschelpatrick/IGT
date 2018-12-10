@@ -29,7 +29,7 @@ public class CTest {
 
         CustomerTestController custController = new CustomerTestController();
 
-        custController.deleteAllCustomers();
+        //custController.deleteAllCustomers();
 
         this.queryEnd = System.currentTimeMillis();
         this.queryTime = queryEnd - queryStart;
@@ -99,6 +99,7 @@ public class CTest {
     }*/
 
 
+    /*
     @Test(expected = NullPointerException.class)
     public void testF_deleteCustomerTest() {
         CustomerTestController custController = new CustomerTestController();
@@ -114,7 +115,7 @@ public class CTest {
 
         //fail("NullPointerException");
 
-    }
+    }*/
 
 
     @Test

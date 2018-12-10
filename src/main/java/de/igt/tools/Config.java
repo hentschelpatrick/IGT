@@ -3,11 +3,11 @@ package de.igt.tools;
 import java.util.Random;
 
 public class Config {
-    public static final Integer NUMBER_OF_CUSTOMERS = 1;
+    public static final Integer NUMBER_OF_CUSTOMERS = 500;
     public static final Integer NUMBER_OF_AIRPOTS = 100;
     public static final Integer NUMBER_OF_FLIGHTS = 100;
     public static final Integer NUMBER_OF_FLIGHTSEGMENTS = 100;
-    public static final String PERSISTENCE_UNIT_NAME = PERSISTENCE_UNITS.OGM_MYSQL.name();
+    public static final String PERSISTENCE_UNIT_NAME = PERSISTENCE_UNITS.OGM_INFINISPAN.name();
     public static final String LOG_STORAGE_LOCATION = "./logs/" + PERSISTENCE_UNIT_NAME + "_crud_performance.txt";
     public static final Integer TRANSACTION_TIMEOUT = 900000;
     public static final String PERSIST_STORAGE_LOCATION = "./logs/customers.txt";
