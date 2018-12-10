@@ -24,9 +24,16 @@ Je nach Anwendungsbereich sollte man seine Datenbank gut auswählen.
 
 | NumberOfInstance | MySQL | MongoDB | Neo4J | PostgreSQL | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|-------|
-| 10 | test | test | test | test | test | test | test |
-| 100 | test | test | test | test | test | test | test |
-| 500 | test | test | test | test | test | test | test |
+| 10 | 7,2 sec | 5,2 sec | 5,4 sec | PostgreSQL | 11,2 sec | 29,7 sec | 40,1 sec |
+| 100 | 9 sec | 5,6 sec | 13,1 sec | PostgreSQL | 19,8 sec | 34,4 sec | 46,7 sec |
+| 500 | 10,3 sec | 9,2 sec | 41,8 sec | PostgreSQL | 22,4 sec | 44,8 sec | 61,2 sec |
+
+Tools:
+
+* VirtialBox
+* Image: Ubuntu 18.10 Cosmic Cuttlefish
+* Docker CE for Ubuntu
+* IntelliJ IDEA
 
 ###wenn die DBs docker-basiert laufen?
 
@@ -37,9 +44,13 @@ Je nach Anwendungsbereich sollte man seine Datenbank gut auswählen.
 | 500 | 12,1 sec | 7,3 sec | 38 sec | PostgreSQL | 16,4 sec | 39 sec | 47 sec |
 
 
+Tools:
 
-Aus der Tabelle ist zu entnehmen, dass die Perfomance der virtualisierten Datenbanken,
-ein besseres Ergebnis erzielt haben, als die Datenbanken welche local auf dem Docker gelaufen sind.
+* OS:Ubuntu
+* Docker CE for Ubuntu
+* IntelliJ IDEA
 
-begründen und belegen Sie Ihre Antwort mit entsprechenden
-Performancemessungen!
+
+Laut den gegebenen Perfomance Messung, werden die Opartionen auf der docker-basierten Lösung
+schneller ausgeführt, als auf der Virtuellen Maschine. Zwischen der Virtuellen Maschine und dem Host
+liegt eine Schicht, die für den Rückstand verantwortlich ist.
