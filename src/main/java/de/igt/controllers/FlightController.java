@@ -224,6 +224,43 @@ public class FlightController {
         return flight;
     }
 
+    public List<Flight> getAllFlights() {
+
+        List<Flight> cIDs = new ArrayList<>();
+        //List<String> returnList = new ArrayList<>();
+
+        try {
+            EntityManager em = emf.createEntityManager();
+
+            String queryString = new String("SELECT E FROM Flight E");
+            Query q = em.createQuery(queryString);
+
+            //logger.info("\n\nGet all Flightsegment TA begins");
+            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
+            tm.begin();
+
+            long queryStart = System.currentTimeMillis();
+
+            cIDs = q.getResultList();
+
+            /*
+            for (FlightSegment c : cIDs) {
+                returnList.add(c.toString());
+            }*/
+
+            long queryEnd = System.currentTimeMillis();
+            em.flush();
+            em.close();
+            tm.commit();
+            //logger.info("\n\nGet all Flightsegment TA ends");
+            long queryTime = queryEnd - queryStart;
+            //logger.info("\n\nFound " + cIDs.size() + " Flightsegment names in " + queryTime + " ms.\n\n");
+        } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
+            e.printStackTrace();
+        }
+        return cIDs;
+    }
+
 
     public List<String> getAllFlightIDs() {
         List<Flight> cIDs = new ArrayList<>();

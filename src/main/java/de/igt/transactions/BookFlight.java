@@ -5,6 +5,7 @@ import de.igt.controllers.CustomerController;
 import de.igt.controllers.FlightController;
 import de.igt.controllers.FlightSegmentController;
 import de.igt.models.Airport;
+import de.igt.models.Flight;
 import de.igt.models.FlightSegment;
 import de.igt.models.Status;
 
@@ -33,6 +34,8 @@ public class BookFlight {
             //Create a flight
             flightController.createFlight("1", new Date(), new Date(), "TES", 450,
                     250, 62, 31);
+            flightController.createFlight("2", new Date(), new Date(), "FRL", 350,
+                    150, 52, 41);
 
             //Create two airports
             airportController1.createAirport("FRA", "DE", "SFAKSD", 4, 5);
@@ -59,8 +62,8 @@ public class BookFlight {
             String arrival_airport = scanner.nextLine();
 
 
-            List<FlightSegment> listOfFlightSegments = flightSegmentController1.getAllFlightSegments();
-            for(FlightSegment c : listOfFlightSegments) {
+            List<Flight> listOfFlight = flightController.getAllFlights();
+            for(Flight c : listOfFlight) {
                 System.out.println(c.toString());
             }
 
@@ -79,6 +82,7 @@ public class BookFlight {
             System.out.println("Geben Sie Ihr Alter an?");
             int alter = scanner.nextInt();
 
+            System.out.println("Ihre Flugbuchung wird durchgeführt!");
 
             customerController.createCustomer(email, vornamen, nachnamen,
                     adresse,alter, "DE", 0, 0, Status.NONE);
