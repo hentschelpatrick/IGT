@@ -22,11 +22,11 @@ Je nach Anwendungsbereich sollte man seine Datenbank gut auswählen.
 
 ### wenn die DBs virtualisiert laufen?
 
-| NumberOfInstance | MySQL | MongoDB | Neo4J | PostgreSQL | Redis | Cassandra | Infinispan |
+| NumberOfInstance | MySQL | MongoDB | Neo4J | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|-------|
-| 10 | 7,2 sec | 5,2 sec | 5,4 sec | PostgreSQL | 11,2 sec | 29,7 sec | 40,1 sec |
-| 100 | 9 sec | 5,6 sec | 13,1 sec | PostgreSQL | 19,8 sec | 34,4 sec | 46,7 sec |
-| 500 | 10,3 sec | 9,2 sec | 41,8 sec | PostgreSQL | 22,4 sec | 44,8 sec | 61,2 sec |
+| 10 | 7,2 sec | 5,2 sec | 5,4 sec | 11,2 sec | 29,7 sec | 40,1 sec |
+| 100 | 9 sec | 5,6 sec | 13,1 sec | 19,8 sec | 34,4 sec | 46,7 sec |
+| 500 | 10,3 sec | 9,2 sec | 41,8 sec | 22,4 sec | 44,8 sec | 61,2 sec |
 
 Tools:
 
@@ -37,11 +37,11 @@ Tools:
 
 ### wenn die DBs docker-basiert laufen?
 
-| NumberOfInstance | MySQL | MongoDB | Neo4J | PostgreSQL | Redis | Cassandra | Infinispan |
+| NumberOfInstance | MySQL | MongoDB | Neo4J | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|-------|
-| 10 | 4,9 sec | 4,8 sec | 5 sec | PostgreSQL | 13,2 sec | 34 sec | 36 sec |
-| 100 | 6,1 sec | 4,7 sec | 12 sec | PostgreSQL | 13,8 sec | 31 sec | 39 sec |
-| 500 | 12,1 sec | 7,3 sec | 38 sec | PostgreSQL | 16,4 sec | 39 sec | 47 sec |
+| 10 | 4,9 sec | 4,8 sec | 5 sec | 13,2 sec | 34 sec | 36 sec |
+| 100 | 6,1 sec | 4,7 sec | 12 sec | 13,8 sec | 31 sec | 39 sec |
+| 500 | 12,1 sec | 7,3 sec | 38 sec | 16,4 sec | 39 sec | 47 sec |
 
 
 Tools:
