@@ -18,9 +18,9 @@ CRUD Operation. Für ein KeyValue Datastore kann das hinzufügen von einer Datei
 bespielsweise bei einer Graph Datenbank. Jede Datenbank hat somit seine Vor- und Nachteile. 
 Je nach Anwendungsbereich sollte man seine Datenbank gut auswählen.
 
-##Welche Architektur hat eine bessere Performance:
+## Welche Architektur hat eine bessere Performance:
 
-###wenn die DBs virtualisiert laufen?
+### wenn die DBs virtualisiert laufen?
 
 | NumberOfInstance | MySQL | MongoDB | Neo4J | PostgreSQL | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|-------|
@@ -35,7 +35,7 @@ Tools:
 * Docker CE for Ubuntu
 * IntelliJ IDEA
 
-###wenn die DBs docker-basiert laufen?
+### wenn die DBs docker-basiert laufen?
 
 | NumberOfInstance | MySQL | MongoDB | Neo4J | PostgreSQL | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|-------|
