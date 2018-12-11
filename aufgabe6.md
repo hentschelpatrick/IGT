@@ -35,6 +35,13 @@ Tools:
 * Docker CE for Ubuntu
 * IntelliJ IDEA
 
+Hardware: 
+* Intel Prozess i7 8700K übertaktet auf 4.3GHZ
+* Nvidia GPU 1080
+* RAM: 16 GB
+* SSD: Samsung Evo 860 (250GB, 500GB, 500GB)
+
+
 ### wenn die DBs docker-basiert laufen?
 
 | NumberOfInstance | MySQL | MongoDB | Neo4J | Redis | Cassandra | Infinispan |
