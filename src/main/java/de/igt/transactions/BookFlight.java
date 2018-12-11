@@ -4,27 +4,21 @@ import de.igt.controllers.AirportController;
 import de.igt.controllers.CustomerController;
 import de.igt.controllers.FlightController;
 import de.igt.controllers.FlightSegmentController;
-import de.igt.models.Airport;
-import de.igt.models.Flight;
-import de.igt.models.FlightSegment;
-import de.igt.models.Status;
+import de.igt.models.*;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class BookFlight {
+
+
     public static void main(String[] args) {
         try {
 
-
-
-
             FlightController flightController = new FlightController();
-            AirportController airportController1 = new AirportController();
-            AirportController airportController2 = new AirportController();
-            FlightSegmentController flightSegmentController1 = new FlightSegmentController();
-            FlightSegmentController flightSegmentController2 = new FlightSegmentController();
+            AirportController airportController = new AirportController();
+            FlightSegmentController flightSegmentController = new FlightSegmentController();
             CustomerController customerController = new CustomerController();
             Scanner scanner = new Scanner(System.in);
 
@@ -38,21 +32,20 @@ public class BookFlight {
                     150, 52, 41);
 
             //Create two airports
-            airportController1.createAirport("FRA", "DE", "SFAKSD", 4, 5);
-            airportController2.createAirport("FRA2", "DE", "SDS", 5, 12);
+            airportController.createAirport("FRA", "DE", "SFAKSD", 4, 5);
+            airportController.createAirport("FRA2", "DE", "SDS", 5, 12);
 
 
-            Airport a1 = airportController1.getAirports("FRA");
-            Airport a2 = airportController2.getAirports("FRA2");
+            Airport a1 = airportController.getAirports("FRA");
+            Airport a2 = airportController.getAirports("FRA2");
 
 
             //Create first flightsegment
-            flightSegmentController1.createFlightsegment("Flight1", a1,
+            flightSegmentController.createFlightsegment("Flight1", a1,
                     a2, 19321);
 
             //Create second flightsegment
             //flightSegmentController2.createFlightsegment("Flight1", a2, a1, 19321);
-
 
 
             System.out.println("Wo möchten Sie Ihre Reise starten?");
@@ -63,7 +56,7 @@ public class BookFlight {
 
 
             List<Flight> listOfFlight = flightController.getAllFlights();
-            for(Flight c : listOfFlight) {
+            for (Flight c : listOfFlight) {
                 System.out.println(c.toString());
             }
 
@@ -85,8 +78,18 @@ public class BookFlight {
             System.out.println("Ihre Flugbuchung wird durchgeführt!");
 
             customerController.createCustomer(email, vornamen, nachnamen,
-                    adresse,alter, "DE", 0, 0, Status.NONE);
+                    adresse, alter, "DE", 0, 0, Status.NONE);
 
+            Customer customer = customerController.getCustomer(email);
+            customer.getFLIGHTS().add(flightController.getFlight(String.valueOf(flug)));
+            customerController.updateCustomer(customer);
+
+            FlightSegment flightSegment = flightSegmentController.getFlightsegments("Flight1");
+            Flight flight = flightController.getFlight(String.valueOf(flug));
+            flight.getFlightSegmentList().add(flightSegment);
+            flightController.updateFlight(flight);
+            flightSegment.setFLIGHT(flight);
+            flightSegmentController.updateFlightsegment(flightSegment);
 
 
         } finally {

@@ -65,4 +65,11 @@ public class FlightSegment implements Serializable {
                 .toString();
     }
 
+    public Flight getFLIGHT() {
+        return FLIGHT;
+    }
+
+    public void setFLIGHT(Flight FLIGHT) {
+        this.FLIGHT = FLIGHT;
+    }
 }
