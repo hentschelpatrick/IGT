@@ -35,12 +35,19 @@ Tools:
 * Docker CE for Ubuntu
 * IntelliJ IDEA
 
-Hardware: 
-* Intel Prozess i7 8700K übertaktet auf 4.3GHZ
+Hardware:
+
+* Intel Prozess i7 8700K übertaktet auf 4.3GhZ
 * Nvidia GPU 1080
 * RAM: 16 GB
 * SSD: Samsung Evo 860 (250GB, 500GB, 500GB)
 
+VM zugewiesene Hardware:
+
+* Intel Prozess i7 8700K übertaktet auf 4.3GhZ x 2 Kerne
+* Nvidia GPU 1080 128MB
+* RAM: 2048MB
+* SSD: Samsung Evo 860 (20GB)
 
 ### wenn die DBs docker-basiert laufen?
 
@@ -56,6 +63,13 @@ Tools:
 * OS:Windows
 * Docker CE for Windows
 * IntelliJ IDEA
+
+
+Hardware: 
+* Intel Prozess i7 8700K übertaktet auf 4.3GHZ
+* Nvidia GPU 1080
+* RAM: 16 GB
+* SSD: Samsung Evo 860 (250GB, 500GB, 500GB)
 
 
 Laut den gegebenen Perfomance Messung, werden die Operationen auf der docker-basierten Lösung
