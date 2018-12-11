@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Persistence</ID>
+  <OriginalElement>JavaeeElement:/722bfa64/OGM_MONGODB/Hibernate_Aufgaben/jpa/JPA/PersistenceModel</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">Airport#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Airport.java</node>
+    <node x="549.5" y="0.0">CustomerTest#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/CustomerTest.java</node>
+    <node x="118.50000000000001" y="567.0">Customer#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Customer.java</node>
+    <node x="78.5" y="189.0">FlightSegment#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/FlightSegment.java</node>
+    <node x="313.5" y="367.0">PhoneType#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/PhoneType.java</node>
+    <node x="71.5" y="312.0">Flight#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Flight.java</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Customer#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Customer.java" target="Flight#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Flight.java">
+      <point x="-79.66666666666669" y="-113.5" />
+      <point x="158.33333333333331" y="542.0" />
+      <point x="127.0" y="542.0" />
+      <point x="-55.5" y="102.5" />
+    </edge>
+    <edge source="Customer#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Customer.java" target="PhoneType#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/PhoneType.java">
+      <point x="79.66666666666669" y="-113.5" />
+      <point x="317.6666666666667" y="542.0" />
+      <point x="409.0" y="542.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="FlightSegment#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/FlightSegment.java" target="Airport#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Airport.java">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="Flight#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Flight.java" target="FlightSegment#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/FlightSegment.java">
+      <point x="0.0" y="-102.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="Flight#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Flight.java" target="Customer#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/Customer.java">
+      <point x="55.5" y="102.5" />
+      <point x="-1.4210854715202004E-14" y="-113.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="280.5" y="253.0" />
+  <SelectedNodes>
+    <node>CustomerTest#file:///Users/patrickhentschel/Desktop/IGT/src/main/java/de/igt/models/CustomerTest.java</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Embeddables</Category>
+    <Category>Superclasses</Category>
+  </Categories>
+</Diagram>
+
