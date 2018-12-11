@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="707c47bc-55cf-41c1-9fa0-77fba2588360" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Aufgabe_03_Datenbankmodelle.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/igt/models/FlightSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/igt/models/FlightSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/igt/tools/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/igt/tools/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/igt/transactions/BookFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/igt/transactions/BookFlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/igt/transactions/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/igt/transactions/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/igt/tools/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/igt/tools/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/igt/transactions/BookFlight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/igt/transactions/BookFlight.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -106,7 +100,7 @@
           <entry key="iml" value="6" />
           <entry key="java" value="354" />
           <entry key="json" value="3" />
-          <entry key="md" value="5" />
+          <entry key="md" value="6" />
           <entry key="properties" value="6" />
           <entry key="sh" value="43" />
           <entry key="sql" value="3" />
@@ -120,7 +114,7 @@
           <entry key="IDEA_MODULE" value="6" />
           <entry key="JAVA" value="354" />
           <entry key="JSON" value="3" />
-          <entry key="Markdown" value="5" />
+          <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="52" />
           <entry key="Properties" value="6" />
           <entry key="Scratch" value="3" />
@@ -134,7 +128,7 @@
           <entry key="iml" value="2" />
           <entry key="java" value="3598" />
           <entry key="json" value="31" />
-          <entry key="md" value="3606" />
+          <entry key="md" value="3854" />
           <entry key="properties" value="3" />
           <entry key="sh" value="11" />
           <entry key="txt" value="13" />
@@ -146,7 +140,7 @@
           <entry key="IDEA_MODULE" value="2" />
           <entry key="JAVA" value="3598" />
           <entry key="JSON" value="31" />
-          <entry key="Markdown" value="3606" />
+          <entry key="Markdown" value="3854" />
           <entry key="PLAIN_TEXT" value="74" />
           <entry key="Properties" value="3" />
           <entry key="XML" value="11" />
@@ -156,37 +150,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aufgabe6.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="45">
+                <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="13" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/transactions/BookFlight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-862">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/transactions/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/igt/models/FlightSegment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-              <folding>
-                <element signature="e#1531#1532#0" expanded="true" />
-                <element signature="e#1575#1576#0" expanded="true" />
-                <element signature="e#1611#1612#0" expanded="true" />
-              </folding>
+        <entry file="file://$PROJECT_DIR$/Aufgabe_03_Datenbankmodelle.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="255">
+                <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -267,6 +250,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/de/igt/models/FlightSegment.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/igt/transactions/BookFlight.java" />
+        <option value="$PROJECT_DIR$/Aufgabe_03_Datenbankmodelle.md" />
       </list>
     </option>
   </component>
@@ -407,7 +391,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544524435259" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544528410187" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -578,7 +562,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67810000" />
+    <option name="totallyTimeSpent" value="68448000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -593,7 +577,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66324437" visible="true" weight="0.19527897" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66324437" visible="true" weight="0.19527897" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.33675563" side_tool="true" weight="0.16666667" />
       <window_info id="Designer" order="3" />
@@ -605,7 +589,7 @@
       <window_info id="Web" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39156628" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30120483" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.55421686" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -752,9 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,9 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="176" column="12" lean-forward="true" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,9 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,9 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -799,9 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -809,16 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aufgabe6.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="645">
-            <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -956,6 +915,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-862">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aufgabe6.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Aufgabe_03_Datenbankmodelle.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="255">
+            <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
