@@ -46,8 +46,8 @@ Tools:
 
 Tools:
 
-* OS:Ubuntu
-* Docker CE for Ubuntu
+* OS:Windows
+* Docker CE for Windows
 * IntelliJ IDEA
 
 
