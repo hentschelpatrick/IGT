@@ -18,14 +18,15 @@ import de.igt.models.Status;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerController {
+public class CustomerController implements CRUD_Interface<Customer, String>{
     private static Logger logger = Logger.getRootLogger();
     //accessing JBoss's Transaction can be done differently but this one works nicely
     TransactionManager tm = com.arjuna.ats.jta.TransactionManager.transactionManager();
     //build the EntityManagerFactory as you would build in in Hibernate ORM
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
-    public void createCustomer(String email, String firstname, String lastname, String address, int age, String country, long miles_flown_year, long total_miles_flown, Status status) {
+
+    public Customer createCustomer(String email, String firstname, String lastname, String address, int age, String country, long miles_flown_year, long total_miles_flown, Status status) {
         Customer customer = new Customer();
         customer.setEMAIL(email);
         customer.setFIRST_NAME(firstname);
@@ -36,7 +37,17 @@ public class CustomerController {
         customer.setMILES_FLOWN_YEAR(miles_flown_year);
         customer.setTOTAL_MILES_FLOWN(total_miles_flown);
         customer.setStatus(status);
+        return customer;
+    }
 
+    public List<Customer> createAirports() {
+        List<Customer> aList = CustomerPopulator.populateCustomerAsList(Config.NUMBER_OF_AIRPOTS);
+        return aList;
+    }
+
+
+    @Override
+    public void create(Customer object) {
         try {
             logger.info("\n\nCreating Customer TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -45,7 +56,7 @@ public class CustomerController {
 
             long queryStart = System.currentTimeMillis();
 
-            em.persist(customer);
+            em.persist(object);
             em.flush();
             em.close();
             tm.commit();
@@ -57,11 +68,8 @@ public class CustomerController {
         }
     }
 
-    public void createCustomers() {
-
-        List<Customer> cList = CustomerPopulator.populateCustomerAsList(Config.NUMBER_OF_CUSTOMERS);
-
-
+    @Override
+    public void create_demo(List<Customer> objects) {
         try {
             logger.info("Create customers TA begins");
             EntityManager em = emf.createEntityManager();
@@ -70,7 +78,7 @@ public class CustomerController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (Customer c : cList) {
+            for (Customer c : objects) {
                 em.persist(c);
             }
 
@@ -84,28 +92,15 @@ public class CustomerController {
 
             long queryTime = queryEnd - queryStart;
 
-            logger.info(cList.size() + " customers persisted in DB in " + queryTime + " ms.");
+            logger.info(objects.size() + " customers persisted in DB in " + queryTime + " ms.");
 
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " CREATE: " + cList.size() + " " + queryTime + "\n");
-
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-
-
-        } catch (NotSupportedException e) {
-            e.printStackTrace();
-        } catch (SystemException e) {
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();
-        } catch (RollbackException e) {
+        } catch (SystemException | NotSupportedException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void updateCustomer(Customer c) {
+    @Override
+    public void update(Customer object) {
         try {
             logger.info("\n\nUpdate customer TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -113,10 +108,10 @@ public class CustomerController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            Customer customerToUpdate = em.find(Customer.class, c.getEMAIL());
+            Customer customerToUpdate = em.find(Customer.class, object.getEMAIL());
             logger.info("\n\nFound customer: " + customerToUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating customer...");
-            customerToUpdate = c;
+            customerToUpdate = object;
             em.merge(customerToUpdate);
 
             long queryEnd = System.currentTimeMillis();
@@ -133,7 +128,8 @@ public class CustomerController {
         }
     }
 
-    public void updateCustomer(List<Customer> cList) {
+    @Override
+    public void update(List<Customer> objects) {
         try {
             EntityManager em = emf.createEntityManager();
             logger.info("\n\nUpdate customers TA begins");
@@ -142,7 +138,7 @@ public class CustomerController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (Customer c : cList) {
+            for (Customer c : objects) {
                 em.merge(c);
             }
             long queryEnd = System.currentTimeMillis();
@@ -153,7 +149,7 @@ public class CustomerController {
 
             logger.info("\n\nUpdate customers TA ends");
             long queryTime = queryEnd - queryStart;
-            logger.info("\n\nUpdates of " + cList.size() + " customers successfully persisted in " + queryTime + " ms.\n\n");
+            logger.info("\n\nUpdates of " + objects.size() + " customers successfully persisted in " + queryTime + " ms.\n\n");
             //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " UPDATE: " + cList.size() + " " + queryTime + "\n");
             //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
         } catch (NotSupportedException | SystemException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
@@ -161,30 +157,8 @@ public class CustomerController {
         }
     }
 
-    public void deleteAllCustomers() {
-        List<String> cust;
-        try {
-            cust = getAllCustomerMails();
-            logger.info("\n\nDelete all customers TA begins");
-            long queryStart = System.currentTimeMillis();
-
-            for (String id : cust) {
-                deleteCustomer(id);
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            logger.info("\n\nDelete all customers TA ends");
-            long queryTime = queryEnd - queryStart;
-
-            logger.info("\n\n" + cust.size() + " customers successfully deleted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteCustomer(String customerMail) {
+    @Override
+    public void delete(Customer object) {
         try {
             logger.info("\n\nDelete customer TA begins");
             EntityManager em = emf.createEntityManager();
@@ -193,7 +167,7 @@ public class CustomerController {
 
             long queryStart = System.currentTimeMillis();
 
-            Customer cust = em.find(Customer.class, customerMail);
+            Customer cust = em.find(Customer.class, object.toString());
             logger.info("\n\nFound customer: " + cust.toString());
             logger.info("\n\nDeleting customer...");
             em.remove(cust);
@@ -213,15 +187,39 @@ public class CustomerController {
         }
     }
 
+    @Override
+    public void deleteAll() {
+        List<Customer> cust;
+        try {
+            cust = readAll();
+            logger.info("\n\nDelete all customers TA begins");
+            long queryStart = System.currentTimeMillis();
 
-    public Customer getCustomer(String customerEmail) {
+            for (Customer customer : cust) {
+                delete(customer);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+            logger.info("\n\nDelete all customers TA ends");
+            long queryTime = queryEnd - queryStart;
+
+            logger.info("\n\n" + cust.size() + " customers successfully deleted in " + queryTime + " ms.\n\n");
+            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
+            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Customer read(String Key) {
         Customer cust = null;
         try {
             EntityManager em = emf.createEntityManager();
             tm.begin();
             logger.info("\n\nDelete customer TA begins");
 
-            cust = em.find(Customer.class, customerEmail);
+            cust = em.find(Customer.class, Key);
             logger.info("\n\nFound customer: " + cust.toString() + "\n\n");
 
 
@@ -237,8 +235,8 @@ public class CustomerController {
         return cust;
     }
 
-    public List<Customer> getAllCustomers() {
-
+    @Override
+    public List<Customer> readAll() {
         List<Customer> cIDs = new ArrayList<>();
 
         try {
@@ -247,7 +245,7 @@ public class CustomerController {
             String queryString = new String("SELECT E FROM Customer E");
             Query q = em.createQuery(queryString);
 
-            logger.info("\n\nGet all customerIDs TA begins");
+            logger.info("\n\nGet all customers TA begins");
             tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
             tm.begin();
 
@@ -259,7 +257,7 @@ public class CustomerController {
             em.flush();
             em.close();
             tm.commit();
-            logger.info("\n\nGet all Custom_CustomerIDs TA ends");
+            logger.info("\n\nGet all customers TA ends");
             long queryTime = queryEnd - queryStart;
             logger.info("\n\nFound " + cIDs.size() + " customer IDs in " + queryTime + " ms.\n\n");
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
@@ -267,43 +265,5 @@ public class CustomerController {
         }
         return cIDs;
     }
-
-
-    public List<String> getAllCustomerMails() {
-
-        List<Customer> cIDs = new ArrayList<>();
-        List<String> returnList = new ArrayList<>();
-
-        try {
-            EntityManager em = emf.createEntityManager();
-
-            String queryString = new String("SELECT E FROM Customer E");
-            Query q = em.createQuery(queryString);
-
-            logger.info("\n\nGet all customerIDs TA begins");
-            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
-            tm.begin();
-
-            long queryStart = System.currentTimeMillis();
-
-            cIDs = q.getResultList();
-
-            for (Customer c : cIDs) {
-                returnList.add(c.getEMAIL());
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            em.flush();
-            em.close();
-            tm.commit();
-            logger.info("\n\nGet all Custom_CustomerIDs TA ends");
-            long queryTime = queryEnd - queryStart;
-            logger.info("\n\nFound " + cIDs.size() + " customer IDs in " + queryTime + " ms.\n\n");
-        } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
-            e.printStackTrace();
-        }
-        return returnList;
-    }
-
 
 }

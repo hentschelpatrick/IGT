@@ -15,7 +15,7 @@ import javax.transaction.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerTestController {
+public class CustomerTestController implements CRUD_Interface<CustomerTest, String>{
 
     private static Logger logger = Logger.getRootLogger();
     //accessing JBoss's Transaction can be done differently but this one works nicely
@@ -24,7 +24,7 @@ public class CustomerTestController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createCustomer(String email, String firstname, String lastname, String address, int age, String country, long miles_flown_year, long total_miles_flown) {
+    public CustomerTest createCustomer(String email, String firstname, String lastname, String address, int age, String country, long miles_flown_year, long total_miles_flown) {
         CustomerTest customer = new CustomerTest();
         customer.setEMAIL(email);
         customer.setFIRST_NAME(firstname);
@@ -34,7 +34,16 @@ public class CustomerTestController {
         customer.setAGE(age);
         customer.setMILES_FLOWN_YEAR(miles_flown_year);
         customer.setTOTAL_MILES_FLOWN(total_miles_flown);
+        return customer;
+    }
 
+    public List<CustomerTest> createCustomers() {
+        List<CustomerTest> cList = TestPopulator.populateCustomerAsList(Config.NUMBER_OF_CUSTOMERS);
+        return cList;
+    }
+
+    @Override
+    public void create(CustomerTest object) {
         try {
             logger.info("\n\nCreating CustomerTest TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -43,7 +52,7 @@ public class CustomerTestController {
 
             long queryStart = System.currentTimeMillis();
 
-            em.persist(customer);
+            em.persist(object);
             em.flush();
             em.close();
             tm.commit();
@@ -55,11 +64,8 @@ public class CustomerTestController {
         }
     }
 
-    public void createCustomers() {
-
-        List<CustomerTest> cList = TestPopulator.populateCustomerAsList(Config.NUMBER_OF_CUSTOMERS);
-
-
+    @Override
+    public void create_demo(List<CustomerTest> objects) {
         try {
             logger.info("Create customers_test TA begins");
             EntityManager em = emf.createEntityManager();
@@ -68,7 +74,7 @@ public class CustomerTestController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (CustomerTest c : cList) {
+            for (CustomerTest c : objects) {
                 em.persist(c);
             }
 
@@ -82,20 +88,15 @@ public class CustomerTestController {
 
             long queryTime = queryEnd - queryStart;
 
-            logger.info(cList.size() + " customers_test persisted in DB in " + queryTime + " ms.");
-
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " CREATE: " + cList.size() + " " + queryTime + "\n");
-
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-
+            logger.info(objects.size() + " customers_test persisted in DB in " + queryTime + " ms.");
 
         } catch (SystemException | NotSupportedException | RollbackException | HeuristicMixedException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void updateCustomer(CustomerTest c) {
+    @Override
+    public void update(CustomerTest object) {
         try {
             logger.info("\n\nUpdate CustomerTest TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -103,10 +104,10 @@ public class CustomerTestController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            CustomerTest customerToUpdate = em.find(CustomerTest.class, c.getEMAIL());
+            CustomerTest customerToUpdate = em.find(CustomerTest.class, object.getEMAIL());
             logger.info("\n\nFound CustomerTest: " + customerToUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating CustomerTest...");
-            customerToUpdate = c;
+            customerToUpdate = object;
             em.merge(customerToUpdate);
 
             long queryEnd = System.currentTimeMillis();
@@ -123,7 +124,8 @@ public class CustomerTestController {
         }
     }
 
-    public void updateCustomer(List<CustomerTest> cList) {
+    @Override
+    public void update(List<CustomerTest> objects) {
         try {
             EntityManager em = emf.createEntityManager();
             logger.info("\n\nUpdate CustomerTest TA begins");
@@ -132,7 +134,7 @@ public class CustomerTestController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (CustomerTest c : cList) {
+            for (CustomerTest c : objects) {
                 em.merge(c);
             }
             long queryEnd = System.currentTimeMillis();
@@ -143,38 +145,14 @@ public class CustomerTestController {
 
             logger.info("\n\nUpdate CustomerTest TA ends");
             long queryTime = queryEnd - queryStart;
-            logger.info("\n\nUpdates of " + cList.size() + " CustomerTest successfully persisted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " UPDATE: " + cList.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+            logger.info("\n\nUpdates of " + objects.size() + " CustomerTest successfully persisted in " + queryTime + " ms.\n\n");
         } catch (NotSupportedException | SystemException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
     }
 
-    public void deleteAllCustomers() {
-        List<String> cust;
-        try {
-            cust = getAllCustomerMails();
-            logger.info("\n\nDelete all CustomerTest TA begins");
-            long queryStart = System.currentTimeMillis();
-
-            for (String id : cust) {
-                deleteCustomer(id);
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            logger.info("\n\nDelete all CustomerTest TA ends");
-            long queryTime = queryEnd - queryStart;
-
-            logger.info("\n\n" + cust.size() + " CustomerTest successfully deleted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteCustomer(String customerMail) {
+    @Override
+    public void delete(CustomerTest object) {
         try {
             logger.info("\n\nDelete CustomerTest TA begins");
             EntityManager em = emf.createEntityManager();
@@ -183,7 +161,7 @@ public class CustomerTestController {
 
             long queryStart = System.currentTimeMillis();
 
-            CustomerTest cust = em.find(CustomerTest.class, customerMail);
+            CustomerTest cust = em.find(CustomerTest.class, object);
             logger.info("\n\nFound CustomerTest: " + cust.toString());
             logger.info("\n\nDeleting CustomerTest...");
             em.remove(cust);
@@ -203,15 +181,37 @@ public class CustomerTestController {
         }
     }
 
+    @Override
+    public void deleteAll() {
+        List<CustomerTest> cust;
+        try {
+            cust = readAll();
+            logger.info("\n\nDelete all CustomerTest TA begins");
+            long queryStart = System.currentTimeMillis();
 
-    public CustomerTest getCustomer(String customerEmail) {
+            for (CustomerTest customerTest : cust) {
+                delete(customerTest);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+            logger.info("\n\nDelete all CustomerTest TA ends");
+            long queryTime = queryEnd - queryStart;
+
+            logger.info("\n\n" + cust.size() + " CustomerTest successfully deleted in " + queryTime + " ms.\n\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public CustomerTest read(String Key) {
         CustomerTest cust = null;
         try {
             EntityManager em = emf.createEntityManager();
             tm.begin();
             logger.info("\n\nDelete CustomerTest TA begins");
 
-            cust = em.find(CustomerTest.class, customerEmail);
+            cust = em.find(CustomerTest.class, Key);
             logger.info("\n\nFound CustomerTest: " + cust.toString() + "\n\n");
 
 
@@ -227,8 +227,8 @@ public class CustomerTestController {
         return cust;
     }
 
-    public List<CustomerTest> getAllCustomers() {
-
+    @Override
+    public List<CustomerTest> readAll() {
         List<CustomerTest> cIDs = new ArrayList<>();
 
         try {
@@ -257,42 +257,4 @@ public class CustomerTestController {
         }
         return cIDs;
     }
-
-
-    public List<String> getAllCustomerMails() {
-
-        List<CustomerTest> cIDs = new ArrayList<>();
-        List<String> returnList = new ArrayList<>();
-
-        try {
-            EntityManager em = emf.createEntityManager();
-
-            String queryString = new String("SELECT E FROM CustomerTest E");
-            Query q = em.createQuery(queryString);
-
-            logger.info("\n\nGet all CustomerMails TA begins");
-            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
-            tm.begin();
-
-            long queryStart = System.currentTimeMillis();
-
-            cIDs = q.getResultList();
-
-            for (CustomerTest c : cIDs) {
-                returnList.add(c.getEMAIL());
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            em.flush();
-            em.close();
-            tm.commit();
-            logger.info("\n\nGet all CustomerMails TA ends");
-            long queryTime = queryEnd - queryStart;
-            logger.info("\n\nFound " + cIDs.size() + " customer mails in " + queryTime + " ms.\n\n");
-        } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
-            e.printStackTrace();
-        }
-        return returnList;
-    }
-
 }
