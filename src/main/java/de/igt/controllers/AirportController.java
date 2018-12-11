@@ -13,7 +13,7 @@ import javax.transaction.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AirportController {
+public class AirportController implements CRUD_Interface<Airport, String> {
     private static Logger logger = Logger.getRootLogger();
     //accessing JBoss's Transaction can be done differently but this one works nicely
     TransactionManager tm = com.arjuna.ats.jta.TransactionManager.transactionManager();
@@ -21,14 +21,24 @@ public class AirportController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createAirport(String airportName, String country, String address, int internationalLandingsites, int nationalLandingsites) {
+    public Airport createAirport(String airportName, String country, String address, int internationalLandingsites, int nationalLandingsites) {
         Airport airport = new Airport();
         airport.setNAME(airportName);
         airport.setCOUNTRY(country);
         airport.setADDRESS(address);
         airport.setAMOUNT_INTERNATIONAL_LANDINGSITES(internationalLandingsites);
         airport.setAMOUNT_NATIONAL_LANDINGSITES(nationalLandingsites);
+        return airport;
+    }
 
+    public List<Airport> createAirports() {
+        List<Airport> aList = AirportPopulator.populateAirportAsList(Config.NUMBER_OF_AIRPOTS);
+        return aList;
+    }
+
+
+    @Override
+    public void create(Airport object) {
         try {
             logger.info("\n\nCreating Airport TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -37,7 +47,7 @@ public class AirportController {
 
             long queryStart = System.currentTimeMillis();
 
-            em.persist(airport);
+            em.persist(object);
             em.flush();
             em.close();
             tm.commit();
@@ -49,10 +59,8 @@ public class AirportController {
         }
     }
 
-    public void createAirports() {
-
-        List<Airport> aList = AirportPopulator.populateAirportAsList(Config.NUMBER_OF_AIRPOTS);
-
+    @Override
+    public void create_demo(List<Airport> objects) {
         try {
             logger.info("Create airpots TA begins");
             EntityManager em = emf.createEntityManager();
@@ -61,7 +69,7 @@ public class AirportController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (Airport c : aList) {
+            for (Airport c : objects) {
                 em.persist(c);
             }
 
@@ -75,28 +83,14 @@ public class AirportController {
 
             long queryTime = queryEnd - queryStart;
 
-            logger.info(aList.size() + " customers airpots in DB in " + queryTime + " ms.");
-
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " CREATE: " + cList.size() + " " + queryTime + "\n");
-
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-
-
-        } catch (NotSupportedException e) {
-            e.printStackTrace();
-        } catch (SystemException e) {
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();
-        } catch (RollbackException e) {
+            logger.info(objects.size() + " customers airpots in DB in " + queryTime + " ms.");
+        } catch (NotSupportedException | SystemException | HeuristicMixedException | HeuristicRollbackException | RollbackException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void updateAirport(Airport airport) {
+    @Override
+    public void update(Airport object) {
         try {
             logger.info("\n\nUpdate airport TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -104,10 +98,10 @@ public class AirportController {
             tm.begin();
             long queryStart = System.currentTimeMillis();
 
-            Airport airportUpdate = em.find(Airport.class, airport.getNAME());
+            Airport airportUpdate = em.find(Airport.class, object.getNAME());
             logger.info("\n\nFound airport: " + airportUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating airport...");
-            airportUpdate = airport;
+            airportUpdate = object;
             em.merge(airportUpdate);
 
             long queryEnd = System.currentTimeMillis();
@@ -124,7 +118,8 @@ public class AirportController {
         }
     }
 
-    public void updateAirport(List<Airport> airportList) {
+    @Override
+    public void update(List<Airport> objects) {
         try {
             EntityManager em = emf.createEntityManager();
             logger.info("\n\nUpdate airport TA begins");
@@ -133,7 +128,7 @@ public class AirportController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (Airport c : airportList) {
+            for (Airport c : objects) {
                 em.merge(c);
             }
             long queryEnd = System.currentTimeMillis();
@@ -144,7 +139,7 @@ public class AirportController {
 
             logger.info("\n\nUpdate airport TA ends");
             long queryTime = queryEnd - queryStart;
-            logger.info("\n\nUpdates of " + airportList.size() + " airport successfully persisted in " + queryTime + " ms.\n\n");
+            logger.info("\n\nUpdates of " + objects.size() + " airport successfully persisted in " + queryTime + " ms.\n\n");
             //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " UPDATE: " + cList.size() + " " + queryTime + "\n");
             //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
         } catch (NotSupportedException | SystemException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
@@ -152,30 +147,8 @@ public class AirportController {
         }
     }
 
-    public void deleteAllAirports() {
-        List<String> airports;
-        try {
-            airports = getAllAirportNames();
-            logger.info("\n\nDelete all airport TA begins");
-            long queryStart = System.currentTimeMillis();
-
-            for (String id : airports) {
-                deleteAirport(id);
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            logger.info("\n\nDelete all airport TA ends");
-            long queryTime = queryEnd - queryStart;
-
-            logger.info("\n\n" + airports.size() + " airport successfully deleted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteAirport(String airportName) {
+    @Override
+    public void delete(Airport object) {
         try {
             logger.info("\n\nDelete airport TA begins");
             EntityManager em = emf.createEntityManager();
@@ -184,10 +157,9 @@ public class AirportController {
 
             long queryStart = System.currentTimeMillis();
 
-            Airport airport = em.find(Airport.class, airportName);
-            logger.info("\n\nFound airport: " + airport.toString());
+            logger.info("\n\nFound airport: " + object.toString());
             logger.info("\n\nDeleting airport...");
-            em.remove(airport);
+            em.remove(object);
 
             long queryEnd = System.currentTimeMillis();
 
@@ -204,16 +176,40 @@ public class AirportController {
         }
     }
 
+    @Override
+    public void deleteAll() {
+        List<Airport> airports;
+        try {
+            airports = readAll();
+            logger.info("\n\nDelete all airport TA begins");
+            long queryStart = System.currentTimeMillis();
 
-    public Airport getAirports(String airportName) {
-        Airport cust = null;
+            for (Airport airport : airports) {
+                delete(airport);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+            logger.info("\n\nDelete all airport TA ends");
+            long queryTime = queryEnd - queryStart;
+
+            logger.info("\n\n" + airports.size() + " airport successfully deleted in " + queryTime + " ms.\n\n");
+            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
+            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Airport read(String Key) {
+        Airport airport = null;
         try {
             EntityManager em = emf.createEntityManager();
             tm.begin();
-            logger.info("\n\nDelete airport TA begins");
+            logger.info("\n\nGet airport TA begins");
 
-            cust = em.find(Airport.class, airportName);
-            logger.info("\n\nFound airport: " + cust.toString() + "\n\n");
+            airport = em.find(Airport.class, Key);
+            logger.info("\n\nFound airport: " + airport.toString() + "\n\n");
 
             em.flush();
             em.close();
@@ -222,15 +218,12 @@ public class AirportController {
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
             e.printStackTrace();
         }
-        return cust;
+        return airport;
     }
 
-
-    public List<String> getAllAirportNames() {
-
+    @Override
+    public List<Airport> readAll() {
         List<Airport> cIDs = new ArrayList<>();
-        List<String> returnList = new ArrayList<>();
-
         try {
             EntityManager em = emf.createEntityManager();
 
@@ -245,10 +238,6 @@ public class AirportController {
 
             cIDs = q.getResultList();
 
-            for (Airport c : cIDs) {
-                returnList.add(c.getNAME());
-            }
-
             long queryEnd = System.currentTimeMillis();
             em.flush();
             em.close();
@@ -259,6 +248,6 @@ public class AirportController {
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
             e.printStackTrace();
         }
-        return returnList;
+        return cIDs;
     }
 }

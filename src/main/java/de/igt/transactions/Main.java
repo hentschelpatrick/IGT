@@ -16,7 +16,7 @@ public class Main {
         CustomerController customerController = new CustomerController();
 
         flightController.deleteAllFlights();
-        airportController.deleteAllAirports();
+        airportController.deleteAll();
         flightSegmentController.deleteAllFlightsegments();
         customerController.deleteAllCustomers();
 

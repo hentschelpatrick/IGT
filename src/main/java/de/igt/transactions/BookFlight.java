@@ -36,8 +36,8 @@ public class BookFlight {
             airportController.createAirport("FRA2", "DE", "SDS", 5, 12);
 
 
-            Airport a1 = airportController.getAirports("FRA");
-            Airport a2 = airportController.getAirports("FRA2");
+            Airport a1 = airportController.read("FRA");
+            Airport a2 = airportController.read("FRA2");
 
 
             //Create first flightsegment
