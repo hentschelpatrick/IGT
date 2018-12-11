@@ -2,12 +2,12 @@
 
 Wie im Namen bereits erwähnt, sind Microservices jeweils viele kleine Services, die in den meisten Fällen
 nur eine Aufgabe verrichten. Microservices laufen selbstständig und sind nicht voneinander abhängig.
-In den meisten Fällen kümmert sich ein Microservice, um genau ein Prozess und nicht um die Prozesse außerhalb.
+In den meisten Fällen kümmert sich ein Microservice, um genau einen Prozess und nicht um die Prozesse außerhalb.
 Sie sind daher sehr unterschiedlich zu betrachten und müssen deshalb auch unterschiedlich angesprochen werden.
-Der Begriff Microservices ist auch eher irreführend, weil es sich hierbei um ein vollständiges System handelt,
+Der Begriff Microservices kann irreführend sein, weil es sich hierbei um ein vollständiges System handelt,
 welches Autonom und ohne äußere Einflüsse ("self contained") sich als Funktionsfähig erweist.
 
-Unsere DockerContainer können als Microservices betrachtet werden, da sich diese jeweils auf eine
+Unsere Dockercontainer können als Microservices betrachtet werden, da sich diese jeweils auf eine
 spezifische Datenbank kümmern und nicht von äußerlichen Faktoren abhängig sind. Im vorhandenen Programmcode
 kann Hibernate als eine Art Management & Remote System betrachtet werden, da Hibernate dafür sorgt, dass die
 Datenbanken mit den richtigen Daten belegt werden und es dadurch nicht zu Fehlermeldungen kommt.
