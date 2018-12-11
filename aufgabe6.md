@@ -8,7 +8,7 @@
 
 
 Wie der Tabelle zu entnehmen ist, hat MongoDB die beste Perfomance erbracht. Für alle genannten Datenbanken
-wurden die CRUD Operation, mit Außnahme der update Methode, verwendet.
+wurden die CRUD Operation, mit Außnahme der update Methode, verwendet. Die Zeitspanne entspricht der Erstellung eines Kunden, das Auslesen des Kunden und wiederum löschen dieses Kunden. Alle Operationen wurden einzeln ohne Batches ausgeführt.
   
 ## Begründen Sie die Performanceunterschiede - warum sind diese so groß bzw. klein?
 
