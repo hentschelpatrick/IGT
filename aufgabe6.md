@@ -12,7 +12,7 @@ wurden die CRUD Operation, mit Außnahme der update Methode, verwendet. Die Zeit
   
 ## Begründen Sie die Performanceunterschiede - warum sind diese so groß bzw. klein?
 
-Einige Datenbanken haben relationen zwischen den einzelnen Daten. Diese führen dazu, dass das Porgramm
+Einer der wesentlichen Unterschiede besteht zwischen den NoSQL und SQL Datenbanken. Ein Impedance mismatcht lässt sich deshalb durch z.B. MongoDB lösen, da es bei dieser keine Join-Operationen gibt. Diese Operationen führen dazu, dass das Porgramm
 selbst die Transaktion langsamer ausführen kann. Darüber hinaus unterscheiden sich die Datenbanken auf die jeweiligen
 CRUD Operation. Für ein KeyValue Datastore kann das hinzufügen von einer Datei schneller durchgeführt werden, wie
 bespielsweise bei einer Graph Datenbank. Jede Datenbank hat somit seine Vor- und Nachteile. 
