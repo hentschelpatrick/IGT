@@ -158,8 +158,9 @@ public class FlightSegmentController implements CRUD_Interface<FlightSegment, St
             long queryStart = System.currentTimeMillis();
 
 
+            FlightSegment test = em.find(FlightSegment.class, object.getNAME());
             logger.info("\n\nDeleting flightsegment...");
-            em.remove(object);
+            em.remove(test);
 
             long queryEnd = System.currentTimeMillis();
 

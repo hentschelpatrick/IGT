@@ -20,10 +20,9 @@ public class CustomerControllerTest {
 
         CustomerController custController = new CustomerController();
 
-        custController.deleteAllCustomers();
-        custController.createCustomers();
-
-
+        custController.deleteAll();
+        List<Customer> object = custController.createAirports();
+        custController.create_demo(object);
     }
 
     @After
@@ -31,7 +30,7 @@ public class CustomerControllerTest {
 
         CustomerController custController = new CustomerController();
 
-        custController.deleteAllCustomers();
+        custController.deleteAll();
 
         this.queryEnd = System.currentTimeMillis();
         this.queryTime = queryEnd - queryStart;
@@ -56,7 +55,7 @@ public class CustomerControllerTest {
     public void testC_getAllCustomerTest() {
         CustomerController custController = new CustomerController();
 
-        ArrayList<Customer> cList = (ArrayList<Customer>) custController.getAllCustomers();
+        ArrayList<Customer> cList = (ArrayList<Customer>) custController.readAll();
 
 
         assertEquals(Config.NUMBER_OF_CUSTOMERS, cList.size(), 0.0001);
@@ -108,11 +107,11 @@ public class CustomerControllerTest {
         CustomerController custController = new CustomerController();
 
 
-        Customer cTest = custController.getCustomer("test");
+        Customer cTest = custController.read("test");
 
-        custController.deleteCustomer("test");
+        custController.delete(cTest);
 
-        cTest = custController.getCustomer("test");
+        cTest = custController.read("test");
 
         cTest.getEMAIL();
 
@@ -125,7 +124,7 @@ public class CustomerControllerTest {
     public void testG_deleteAllCustomerTest() {
         CustomerController custController = new CustomerController();
 
-        custController.deleteAllCustomers();
+        custController.deleteAll();
 
     }
 

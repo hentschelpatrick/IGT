@@ -157,9 +157,10 @@ public class AirportController implements CRUD_Interface<Airport, String> {
 
             long queryStart = System.currentTimeMillis();
 
+            Airport test = em.find(Airport.class, object.getNAME());
             logger.info("\n\nFound airport: " + object.toString());
             logger.info("\n\nDeleting airport...");
-            em.remove(object);
+            em.remove(test);
 
             long queryEnd = System.currentTimeMillis();
 

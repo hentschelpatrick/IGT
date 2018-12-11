@@ -23,7 +23,7 @@ public class FlightController implements CRUD_Interface<Flight, String>{
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createFlight(String flightID, Date departureTime, Date arrivalTime, String type, int priceFirstClass,
+    public Flight createFlight(String flightID, Date departureTime, Date arrivalTime, String type, int priceFirstClass,
                              int priceEcoClass, int seatsEco, int seatsFirstClass) {
         Flight flight = new Flight();
         flight.setFLIGHT_ID(flightID);
@@ -34,6 +34,7 @@ public class FlightController implements CRUD_Interface<Flight, String>{
         flight.setPRICE_ECO_CLASS(priceEcoClass);
         flight.setSEATS_ECO_CLASS(seatsEco);
         flight.setSEATS_FIRST_CLASS(seatsFirstClass);
+        return flight;
     }
 
     public List<Flight> createFlights() {
@@ -194,9 +195,10 @@ public class FlightController implements CRUD_Interface<Flight, String>{
 
             long queryStart = System.currentTimeMillis();
 
+            Flight test = em.find(Flight.class, object.getFLIGHT_ID());
             logger.info("\n\nFound flight: " + object.toString());
             logger.info("\n\nDeleting flight...");
-            em.remove(object);
+            em.remove(test);
 
             long queryEnd = System.currentTimeMillis();
 

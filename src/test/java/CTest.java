@@ -20,8 +20,9 @@ public class CTest {
 
         CustomerTestController custController = new CustomerTestController();
 
-        custController.deleteAllCustomers();
-        custController.createCustomers();
+        custController.deleteAll();
+        List<CustomerTest> object = custController.createCustomers();
+        custController.create_demo(object);
     }
 
     @After
@@ -49,17 +50,17 @@ public class CTest {
     }*/
 
 
+    /*
     @Test
     public void testC_getAllCustomerTest() {
         CustomerTestController custController = new CustomerTestController();
 
-        ArrayList<CustomerTest> cList = (ArrayList<CustomerTest>) custController.getAllCustomers();
+        ArrayList<CustomerTest> cList = (ArrayList<CustomerTest>) custController.readAll();
 
 
         assertEquals(Config.NUMBER_OF_CUSTOMERS, cList.size(), 0.0001);
 
-
-    }
+    }*/
 
     /*
     @Test
@@ -122,7 +123,7 @@ public class CTest {
     public void testG_deleteAllCustomerTest() {
         CustomerTestController custController = new CustomerTestController();
 
-        custController.deleteAllCustomers();
+        custController.deleteAll();
 
     }
 

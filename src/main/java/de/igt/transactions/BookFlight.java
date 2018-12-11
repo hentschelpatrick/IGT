@@ -26,14 +26,16 @@ public class BookFlight {
             String temp = scanner.nextLine();
 
             //Create a flight
-            flightController.createFlight("1", new Date(), new Date(), "TES", 450,
-                    250, 62, 31);
-            flightController.createFlight("2", new Date(), new Date(), "FRL", 350,
-                    150, 52, 41);
+            flightController.create(flightController.createFlight("1", new Date(), new Date(), "TES", 450,
+                    250, 62, 31));
+            flightController.create(flightController.createFlight("2", new Date(), new Date(), "FRL", 350,
+                    150, 52, 41));
 
             //Create two airports
-            airportController.createAirport("FRA", "DE", "SFAKSD", 4, 5);
-            airportController.createAirport("FRA2", "DE", "SDS", 5, 12);
+            airportController.create(airportController.createAirport("FRA", "DE", "SFAKSD",
+                    4, 5));
+            airportController.create(airportController.createAirport("FRA2", "DE", "SDS",
+                    5, 12));
 
 
             Airport a1 = airportController.read("FRA");
@@ -41,8 +43,8 @@ public class BookFlight {
 
 
             //Create first flightsegment
-            flightSegmentController.createFlightsegment("Flight1", a1,
-                    a2, 19321);
+            flightSegmentController.create(flightSegmentController.createFlightsegment("Flight1", a1,
+                    a2, 19321));
 
             //Create second flightsegment
             //flightSegmentController2.createFlightsegment("Flight1", a2, a1, 19321);
@@ -55,7 +57,7 @@ public class BookFlight {
             String arrival_airport = scanner.nextLine();
 
 
-            List<Flight> listOfFlight = flightController.getAllFlights();
+            List<Flight> listOfFlight = flightController.readAll();
             for (Flight c : listOfFlight) {
                 System.out.println(c.toString());
             }
@@ -77,19 +79,19 @@ public class BookFlight {
 
             System.out.println("Ihre Flugbuchung wird durchgeführt!");
 
-            customerController.createCustomer(email, vornamen, nachnamen,
-                    adresse, alter, "DE", 0, 0, Status.NONE);
+            customerController.create(customerController.createCustomer(email, vornamen, nachnamen,
+                    adresse, alter, "DE", 0, 0, Status.NONE));
 
-            Customer customer = customerController.getCustomer(email);
-            customer.getFLIGHTS().add(flightController.getFlight(String.valueOf(flug)));
-            customerController.updateCustomer(customer);
+            Customer customer = customerController.read(email);
+            customer.getFLIGHTS().add(flightController.read(String.valueOf(flug)));
+            customerController.update(customer);
 
-            FlightSegment flightSegment = flightSegmentController.getFlightsegments("Flight1");
-            Flight flight = flightController.getFlight(String.valueOf(flug));
+            FlightSegment flightSegment = flightSegmentController.read("Flight1");
+            Flight flight = flightController.read(String.valueOf(flug));
             flight.getFlightSegmentList().add(flightSegment);
-            flightController.updateFlight(flight);
+            flightController.update(flight);
             flightSegment.setFLIGHT(flight);
-            flightSegmentController.updateFlightsegment(flightSegment);
+            flightSegmentController.update(flightSegment);
 
 
         } finally {

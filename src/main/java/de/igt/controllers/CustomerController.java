@@ -167,7 +167,7 @@ public class CustomerController implements CRUD_Interface<Customer, String>{
 
             long queryStart = System.currentTimeMillis();
 
-            Customer cust = em.find(Customer.class, object.toString());
+            Customer cust = em.find(Customer.class, object.getEMAIL());
             logger.info("\n\nFound customer: " + cust.toString());
             logger.info("\n\nDeleting customer...");
             em.remove(cust);

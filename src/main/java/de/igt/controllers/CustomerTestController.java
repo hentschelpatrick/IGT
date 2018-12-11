@@ -161,7 +161,7 @@ public class CustomerTestController implements CRUD_Interface<CustomerTest, Stri
 
             long queryStart = System.currentTimeMillis();
 
-            CustomerTest cust = em.find(CustomerTest.class, object);
+            CustomerTest cust = em.find(CustomerTest.class, object.getEMAIL());
             logger.info("\n\nFound CustomerTest: " + cust.toString());
             logger.info("\n\nDeleting CustomerTest...");
             em.remove(cust);

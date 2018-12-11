@@ -15,10 +15,10 @@ public class Main {
         FlightSegmentController flightSegmentController = new FlightSegmentController();
         CustomerController customerController = new CustomerController();
 
-        flightController.deleteAllFlights();
+        flightController.deleteAll();
         airportController.deleteAll();
-        flightSegmentController.deleteAllFlightsegments();
-        customerController.deleteAllCustomers();
+        flightSegmentController.deleteAll();
+        customerController.deleteAll();
 
     }
 }

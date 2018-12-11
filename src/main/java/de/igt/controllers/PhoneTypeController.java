@@ -115,8 +115,9 @@ public class PhoneTypeController implements CRUD_Interface<PhoneType, String> {
 
             long queryStart = System.currentTimeMillis();
 
+            PhoneType test = em.find(PhoneType.class, object.getPHONE_ID());
             logger.info("\n\nDeleting PhoneType...");
-            em.remove(object);
+            em.remove(test);
 
             long queryEnd = System.currentTimeMillis();
 
