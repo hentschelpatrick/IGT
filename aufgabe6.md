@@ -12,7 +12,7 @@ wurden die CRUD Operation, mit Außnahme der update Methode, verwendet. Die Zeit
   
 ## Begründen Sie die Performanceunterschiede - warum sind diese so groß bzw. klein?
 
-Einer der wesentlichen Unterschiede besteht zwischen den NoSQL und SQL Datenbanken. Ein Impedance mismatcht lässt sich deshalb durch z.B. MongoDB lösen, da es bei dieser keine Join-Operationen gibt. Diese Operationen führen dazu, dass das Porgramm
+Einer der wesentlichen Unterschiede besteht zwischen den NoSQL und SQL Datenbanken. Ein Impedance mismatcht lässt sich deshalb durch z.B. mit MongoDB lösen, da es bei dieser Datenbank keine Join-Operationen gibt. Diese Operationen führen dazu, dass das Porgramm
 selbst die Transaktion langsamer ausführen kann. Darüber hinaus unterscheiden sich die Datenbanken auf die jeweiligen
 CRUD Operation. Für ein KeyValue Datastore kann das hinzufügen von einer Datei schneller durchgeführt werden, wie
 bespielsweise bei einer Graph Datenbank. Jede Datenbank hat somit seine Vor- und Nachteile. 
@@ -72,6 +72,6 @@ Hardware:
 * SSD: Samsung Evo 860 (250GB, 500GB, 500GB)
 
 
-Laut den gegebenen Perfomance Messung, werden die Operationen auf der docker-basierten Lösung
+Laut den gegebenen Perfomancemessung, werden die Operationen auf der docker-basierten Lösung
 schneller ausgeführt, als auf der Virtuellen Maschine. Zwischen der Virtuellen Maschine und dem Host
 liegt eine Schicht, die für den Rückstand verantwortlich ist.
