@@ -1,4 +1,4 @@
-##Welche Datenbank bringt die beste Performance für das gegebene Szenario?
+## Welche Datenbank bringt die beste Performance für das gegebene Szenario?
 
 | NumberOfInstance | MySQL | MongoDB | Neo4J | PostgreSQL | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|-------|
@@ -30,7 +30,7 @@ Je nach Anwendungsbereich sollte man seine Datenbank gut auswählen.
 
 Tools:
 
-* VirtialBox
+* VirtualBox
 * Image: Ubuntu 18.10 Cosmic Cuttlefish
 * Docker CE for Ubuntu
 * IntelliJ IDEA
