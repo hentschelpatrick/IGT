@@ -24,9 +24,9 @@ Je nach Anwendungsbereich sollte man seine Datenbank gut auswählen.
 
 | NumberOfInstance | MySQL | MongoDB | Neo4J | Redis | Cassandra | Infinispan |
 |---|-------|-------|-------|-------|-------|-------|
-| 10 | 7,2 sec | 5,2 sec | 5,4 sec | 11,2 sec | 29,7 sec | 40,1 sec |
-| 100 | 9 sec | 5,6 sec | 13,1 sec | 19,8 sec | 34,4 sec | 46,7 sec |
-| 500 | 10,3 sec | 9,2 sec | 41,8 sec | 22,4 sec | 44,8 sec | 61,2 sec |
+| 10 | 5,0 sec | 4,8 sec | 5,2 sec | 12,7 sec | 33,7 sec | 40,1 sec |
+| 100 | 6,1 sec | 4,9 sec | 13,3 sec | 13,9 sec | 30,4 sec | 44,7 sec |
+| 500 | 12,0 sec | 7,4 sec | 39,8 sec | 16,4 sec | 39,8 sec | 61,2 sec |
 
 Tools:
 
