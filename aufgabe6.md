@@ -51,6 +51,6 @@ Tools:
 * IntelliJ IDEA
 
 
-Laut den gegebenen Perfomance Messung, werden die Opartionen auf der docker-basierten Lösung
+Laut den gegebenen Perfomance Messung, werden die Operationen auf der docker-basierten Lösung
 schneller ausgeführt, als auf der Virtuellen Maschine. Zwischen der Virtuellen Maschine und dem Host
 liegt eine Schicht, die für den Rückstand verantwortlich ist.
