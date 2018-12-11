@@ -12,7 +12,7 @@ import javax.transaction.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneTypeController {
+public class PhoneTypeController implements CRUD_Interface<PhoneType, String> {
     private static Logger logger = Logger.getRootLogger();
     //accessing JBoss's Transaction can be done differently but this one works nicely
     TransactionManager tm = com.arjuna.ats.jta.TransactionManager.transactionManager();
@@ -20,11 +20,16 @@ public class PhoneTypeController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createPhoneType(String pId, int pnumber, String type) {
+    public PhoneType createPhoneType(String pId, int pnumber, String type) {
         PhoneType pt = new PhoneType();
         pt.setPHONE_ID(pId);
         pt.setPHONE_NUMBER(pnumber);
         pt.setPHONE_TYPE(type);
+        return pt;
+    }
+
+    @Override
+    public void create(PhoneType object) {
         try {
             logger.info("\n\nCreating PhoneType TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -33,7 +38,7 @@ public class PhoneTypeController {
 
             long queryStart = System.currentTimeMillis();
 
-            em.persist(pt);
+            em.persist(object);
             em.flush();
             em.close();
             tm.commit();
@@ -45,26 +50,24 @@ public class PhoneTypeController {
         }
     }
 
-    public void updatePhoneType(PhoneType pt) {
+    @Override
+    public void create_demo(List<PhoneType> objects) {
+    }
+
+    @Override
+    public void update(PhoneType object) {
         try {
             logger.info("\n\nUpdate PhoneType TA begins\n\n");
             EntityManager em = emf.createEntityManager();
             tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
             tm.begin();
             long queryStart = System.currentTimeMillis();
-
-            PhoneType psUpdate = em.find(PhoneType.class, pt.getPHONE_ID());
-            logger.info("\n\nFound PhoneType: " + psUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating PhoneType...");
-            psUpdate = pt;
-            em.merge(psUpdate);
-
+            em.merge(object);
             long queryEnd = System.currentTimeMillis();
-
             em.flush();
             em.close();
             tm.commit();
-
             logger.info("\n\nUpdate PhoneType TA ends\n");
             long queryTime = queryEnd - queryStart;
             logger.info("\nPhoneType successfully persisted in " + queryTime + " ms.\n\n");
@@ -73,7 +76,8 @@ public class PhoneTypeController {
         }
     }
 
-    public void updatePhoneTypes(List<PhoneType> ptList) {
+    @Override
+    public void update(List<PhoneType> objects) {
         try {
             EntityManager em = emf.createEntityManager();
             logger.info("\n\nUpdate PhoneType TA begins");
@@ -82,7 +86,7 @@ public class PhoneTypeController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (PhoneType c : ptList) {
+            for (PhoneType c : objects) {
                 em.merge(c);
             }
             long queryEnd = System.currentTimeMillis();
@@ -93,7 +97,7 @@ public class PhoneTypeController {
 
             logger.info("\n\nUpdate PhoneType TA ends");
             long queryTime = queryEnd - queryStart;
-            logger.info("\n\nUpdates of " + ptList.size() + " PhoneType successfully persisted in " + queryTime + " ms.\n\n");
+            logger.info("\n\nUpdates of " + objects.size() + " PhoneType successfully persisted in " + queryTime + " ms.\n\n");
             //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " UPDATE: " + cList.size() + " " + queryTime + "\n");
             //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
         } catch (NotSupportedException | SystemException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
@@ -101,30 +105,8 @@ public class PhoneTypeController {
         }
     }
 
-    public void deleteAllPhoneTypes() {
-        List<String> pt;
-        try {
-            pt = getAllPhoneTypeIds();
-            logger.info("\n\nDelete all PhoneTypes TA begins");
-            long queryStart = System.currentTimeMillis();
-
-            for (String id : pt) {
-                deletePhoneType(id);
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            logger.info("\n\nDelete all PhoneTypes TA ends");
-            long queryTime = queryEnd - queryStart;
-
-            logger.info("\n\n" + pt.size() + " PhoneTypes successfully deleted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deletePhoneType(String phonetypeID) {
+    @Override
+    public void delete(PhoneType object) {
         try {
             logger.info("\n\nDelete PhoneType TA begins");
             EntityManager em = emf.createEntityManager();
@@ -133,10 +115,8 @@ public class PhoneTypeController {
 
             long queryStart = System.currentTimeMillis();
 
-            PhoneType phonetype = em.find(PhoneType.class, phonetypeID);
-            logger.info("\n\nFound PhoneType: " + phonetype.toString());
             logger.info("\n\nDeleting PhoneType...");
-            em.remove(phonetype);
+            em.remove(object);
 
             long queryEnd = System.currentTimeMillis();
 
@@ -153,16 +133,40 @@ public class PhoneTypeController {
         }
     }
 
+    @Override
+    public void deleteAll() {
+        List<PhoneType> pt;
+        try {
+            pt = readAll();
+            logger.info("\n\nDelete all PhoneTypes TA begins");
+            long queryStart = System.currentTimeMillis();
 
-    public PhoneType getPhoneTypes(String phonetypeID) {
-        PhoneType cust = null;
+            for (PhoneType phoneType : pt) {
+                delete(phoneType);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+            logger.info("\n\nDelete all PhoneTypes TA ends");
+            long queryTime = queryEnd - queryStart;
+
+            logger.info("\n\n" + pt.size() + " PhoneTypes successfully deleted in " + queryTime + " ms.\n\n");
+            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
+            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public PhoneType read(String Key) {
+        PhoneType phoneType = null;
         try {
             EntityManager em = emf.createEntityManager();
             tm.begin();
             logger.info("\n\nDelete PhoneType TA begins");
 
-            cust = em.find(PhoneType.class, phonetypeID);
-            logger.info("\n\nFound PhoneType: " + cust.toString() + "\n\n");
+            phoneType = em.find(PhoneType.class, Key);
+            logger.info("\n\nFound PhoneType: " + phoneType.toString() + "\n\n");
 
             em.flush();
             em.close();
@@ -171,15 +175,12 @@ public class PhoneTypeController {
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
             e.printStackTrace();
         }
-        return cust;
+        return phoneType;
     }
 
-
-    public List<String> getAllPhoneTypeIds() {
-
+    @Override
+    public List<PhoneType> readAll() {
         List<PhoneType> cIDs = new ArrayList<>();
-        List<String> returnList = new ArrayList<>();
-
         try {
             EntityManager em = emf.createEntityManager();
 
@@ -189,15 +190,8 @@ public class PhoneTypeController {
             logger.info("\n\nGet all PhoneTypeIDs TA begins");
             tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
             tm.begin();
-
             long queryStart = System.currentTimeMillis();
-
             cIDs = q.getResultList();
-
-            for (PhoneType c : cIDs) {
-                returnList.add(c.getPHONE_ID());
-            }
-
             long queryEnd = System.currentTimeMillis();
             em.flush();
             em.close();
@@ -208,6 +202,6 @@ public class PhoneTypeController {
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
             e.printStackTrace();
         }
-        return returnList;
+        return cIDs;
     }
 }

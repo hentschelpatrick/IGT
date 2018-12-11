@@ -1,6 +1,7 @@
 package de.igt.controllers;
 
 import de.igt.models.Airport;
+import de.igt.models.Flight;
 import de.igt.models.FlightSegment;
 import de.igt.tools.Config;
 import de.igt.tools.FlightSegmentPopulator;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FlightSegmentController {
+public class FlightSegmentController implements CRUD_Interface<FlightSegment, String> {
     private static Logger logger = Logger.getRootLogger();
     //accessing JBoss's Transaction can be done differently but this one works nicely
     TransactionManager tm = com.arjuna.ats.jta.TransactionManager.transactionManager();
@@ -23,12 +24,22 @@ public class FlightSegmentController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT_NAME);
 
 
-    public void createFlightsegment(String name, Airport departureAirport, Airport arrivalAirport, int distanceInMiles) {
+    public FlightSegment createFlightsegment(String name, Airport departureAirport, Airport arrivalAirport, int distanceInMiles) {
         FlightSegment flightsegments = new FlightSegment();
         flightsegments.setNAME(name);
         flightsegments.setDEPARTURE_AIRPORT(departureAirport);
         flightsegments.setARRIVAL_AIRPORT(arrivalAirport);
         flightsegments.setDISTANCE_MILES(distanceInMiles);
+        return flightsegments;
+    }
+
+    public List<FlightSegment> createFlightSegments() {
+        return FlightSegmentPopulator.populateFlightSegmentAsList(Config.NUMBER_OF_FLIGHTSEGMENTS);
+    }
+
+
+    @Override
+    public void create(FlightSegment object) {
         try {
             logger.info("\n\nCreating Flightsegments TA begins\n\n");
             EntityManager em = emf.createEntityManager();
@@ -37,7 +48,7 @@ public class FlightSegmentController {
 
             long queryStart = System.currentTimeMillis();
 
-            em.persist(flightsegments);
+            em.persist(object);
             em.flush();
             em.close();
             tm.commit();
@@ -49,10 +60,8 @@ public class FlightSegmentController {
         }
     }
 
-    public void createFlightSegments() {
-
-        List<FlightSegment> fsList = FlightSegmentPopulator.populateFlightSegmentAsList(Config.NUMBER_OF_FLIGHTSEGMENTS);
-
+    @Override
+    public void create_demo(List<FlightSegment> objects) {
         try {
             logger.info("Create flightsegments TA begins");
             EntityManager em = emf.createEntityManager();
@@ -61,7 +70,7 @@ public class FlightSegmentController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (FlightSegment c : fsList) {
+            for (FlightSegment c : objects) {
                 em.persist(c);
             }
 
@@ -75,40 +84,24 @@ public class FlightSegmentController {
 
             long queryTime = queryEnd - queryStart;
 
-            logger.info(fsList.size() + " customers flightsegments in DB in " + queryTime + " ms.");
+            logger.info(objects.size() + " customers flightsegments in DB in " + queryTime + " ms.");
 
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " CREATE: " + cList.size() + " " + queryTime + "\n");
-
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-
-
-        } catch (NotSupportedException e) {
-            e.printStackTrace();
-        } catch (SystemException e) {
-            e.printStackTrace();
-        } catch (HeuristicMixedException e) {
-            e.printStackTrace();
-        } catch (HeuristicRollbackException e) {
-            e.printStackTrace();
-        } catch (RollbackException e) {
+        } catch (NotSupportedException | SystemException | HeuristicMixedException | HeuristicRollbackException | RollbackException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void updateFlightsegment(FlightSegment flightsegment) {
+    @Override
+    public void update(FlightSegment object) {
         try {
             logger.info("\n\nUpdate flightsegment TA begins\n\n");
             EntityManager em = emf.createEntityManager();
             tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
             tm.begin();
             long queryStart = System.currentTimeMillis();
-
-            FlightSegment fsUpdate = em.find(FlightSegment.class, flightsegment.getNAME());
-            logger.info("\n\nFound flightsegment: " + fsUpdate.toString().concat("\n\n"));
             logger.info("\n\nUpdating flightsegment...");
-            fsUpdate = flightsegment;
-            em.merge(fsUpdate);
+
+            em.merge(object);
 
             long queryEnd = System.currentTimeMillis();
 
@@ -124,7 +117,8 @@ public class FlightSegmentController {
         }
     }
 
-    public void updateFlightsegments(List<FlightSegment> flightsegmentsList) {
+    @Override
+    public void update(List<FlightSegment> objects) {
         try {
             EntityManager em = emf.createEntityManager();
             logger.info("\n\nUpdate FlightSegment TA begins");
@@ -133,7 +127,7 @@ public class FlightSegmentController {
 
             long queryStart = System.currentTimeMillis();
 
-            for (FlightSegment c : flightsegmentsList) {
+            for (FlightSegment c : objects) {
                 em.merge(c);
             }
             long queryEnd = System.currentTimeMillis();
@@ -144,38 +138,17 @@ public class FlightSegmentController {
 
             logger.info("\n\nUpdate FlightSegment TA ends");
             long queryTime = queryEnd - queryStart;
-            logger.info("\n\nUpdates of " + flightsegmentsList.size() + " FlightSegment successfully persisted in " + queryTime + " ms.\n\n");
+            logger.info("\n\nUpdates of " + objects.size() + " FlightSegment successfully persisted in " + queryTime + " ms.\n\n");
             //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " UPDATE: " + cList.size() + " " + queryTime + "\n");
             //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
         } catch (NotSupportedException | SystemException | HeuristicMixedException | RollbackException | HeuristicRollbackException e) {
             e.printStackTrace();
         }
+
     }
 
-    public void deleteAllFlightsegments() {
-        List<String> flightsegments;
-        try {
-            flightsegments = getAllFlightSegmentNames();
-            logger.info("\n\nDelete all FlightSegment TA begins");
-            long queryStart = System.currentTimeMillis();
-
-            for (String id : flightsegments) {
-                deleteFlightsegment(id);
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            logger.info("\n\nDelete all FlightSegment TA ends");
-            long queryTime = queryEnd - queryStart;
-
-            logger.info("\n\n" + flightsegments.size() + " flightsegments successfully deleted in " + queryTime + " ms.\n\n");
-            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
-            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteFlightsegment(String flightsegmentID) {
+    @Override
+    public void delete(FlightSegment object) {
         try {
             logger.info("\n\nDelete flightsegment TA begins");
             EntityManager em = emf.createEntityManager();
@@ -184,10 +157,9 @@ public class FlightSegmentController {
 
             long queryStart = System.currentTimeMillis();
 
-            FlightSegment flightsegment = em.find(FlightSegment.class, flightsegmentID);
-            logger.info("\n\nFound flightsegment: " + flightsegment.toString());
+
             logger.info("\n\nDeleting flightsegment...");
-            em.remove(flightsegment);
+            em.remove(object);
 
             long queryEnd = System.currentTimeMillis();
 
@@ -202,17 +174,42 @@ public class FlightSegmentController {
         } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
             e.printStackTrace();
         }
+
     }
 
+    @Override
+    public void deleteAll() {
+        List<FlightSegment> flightsegments;
+        try {
+            flightsegments = readAll();
+            logger.info("\n\nDelete all FlightSegment TA begins");
+            long queryStart = System.currentTimeMillis();
 
-    public FlightSegment getFlightsegments(String flightsegmentID) {
+            for (FlightSegment id : flightsegments) {
+                delete(id);
+            }
+
+            long queryEnd = System.currentTimeMillis();
+            logger.info("\n\nDelete all FlightSegment TA ends");
+            long queryTime = queryEnd - queryStart;
+
+            logger.info("\n\n" + flightsegments.size() + " flightsegments successfully deleted in " + queryTime + " ms.\n\n");
+            //String writeToFile = new String(Config.PERSISTENCE_UNIT_NAME + " DELETE: " + cust.size() + " " + queryTime + "\n");
+            //Files.write(Paths.get(Config.LOG_STORAGE_LOCATION), writeToFile.getBytes(), CREATE, APPEND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public FlightSegment read(String Key) {
         FlightSegment cust = null;
         try {
             EntityManager em = emf.createEntityManager();
             tm.begin();
             logger.info("\n\nDelete flightsegment TA begins");
 
-            cust = em.find(FlightSegment.class, flightsegmentID);
+            cust = em.find(FlightSegment.class, Key);
             logger.info("\n\nFound flightsegment: " + cust.toString() + "\n\n");
 
             em.flush();
@@ -225,8 +222,8 @@ public class FlightSegmentController {
         return cust;
     }
 
-    public List<FlightSegment> getAllFlightSegments() {
-
+    @Override
+    public List<FlightSegment> readAll() {
         List<FlightSegment> cIDs = new ArrayList<>();
         //List<String> returnList = new ArrayList<>();
 
@@ -261,41 +258,4 @@ public class FlightSegmentController {
         }
         return cIDs;
     }
-
-    public List<String> getAllFlightSegmentNames() {
-
-        List<FlightSegment> cIDs = new ArrayList<>();
-        List<String> returnList = new ArrayList<>();
-
-        try {
-            EntityManager em = emf.createEntityManager();
-
-            String queryString = new String("SELECT E FROM FlightSegment E");
-            Query q = em.createQuery(queryString);
-
-            logger.info("\n\nGet all FlightsegmentNames TA begins");
-            tm.setTransactionTimeout(Config.TRANSACTION_TIMEOUT);
-            tm.begin();
-
-            long queryStart = System.currentTimeMillis();
-
-            cIDs = q.getResultList();
-
-            for (FlightSegment c : cIDs) {
-                returnList.add(c.getNAME());
-            }
-
-            long queryEnd = System.currentTimeMillis();
-            em.flush();
-            em.close();
-            tm.commit();
-            logger.info("\n\nGet all FlightSegmentNames TA ends");
-            long queryTime = queryEnd - queryStart;
-            logger.info("\n\nFound " + cIDs.size() + " FlightSegment names in " + queryTime + " ms.\n\n");
-        } catch (NotSupportedException | SystemException | HeuristicRollbackException | HeuristicMixedException | RollbackException e) {
-            e.printStackTrace();
-        }
-        return returnList;
-    }
-
 }
